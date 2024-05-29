@@ -29,7 +29,16 @@ class controller {
         void menuHelp();
         void menuInfo();
 
-        //criar opcoes dos submenus
+        void includeSeries();
+        void recoverySeries();
+        void editSeries();
+        void deleteSeries();
+
+        void titleReport();
+        void channelReport();
+        void yearReport();
+        void gradeReport();
+
 };
 
 #endif
