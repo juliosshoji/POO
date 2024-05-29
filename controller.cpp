@@ -1,3 +1,8 @@
+/* 
+Júlio Shoji Zotovici Kobayashi
+Class controller
+June, 2024
+*/
 #include "controller.hpp"
 
 using namespace std;

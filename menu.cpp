@@ -1,7 +1,7 @@
 /* 
 Júlio Shoji Zotovici Kobayashi
-Classe Menu do projeto de POO I
-Junho de 2024
+Class menu
+June, 2024
 */
 
 #include "menu.hpp"
