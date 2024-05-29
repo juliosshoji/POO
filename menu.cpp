@@ -46,6 +46,11 @@ void menu::drawMenu(){
     cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
     drawLine();
     for(int index = 0; index < this->option.size(); index++){
+        if(index == 0){
+            cout << endl;
+            cout << setw(this->width/this->title.length()) << index << ". ";
+            cout << "Sair" << endl;
+        }
         cout << endl;
         cout << setw(this->width/this->title.length()) << index + 1 << ". ";
         cout << this->option[index] << endl;
@@ -67,12 +72,13 @@ void menu::drawLine(){
 int menu::getChoice(){
     int choice;
     do{
+        cout << "Enter valid input: ";
         cin >> choice;
-    } while (isValidChoice(choice));
-    cout << "Valid choice!" << endl;
+    }while(!this->isValidChoice(choice));
+    
     return choice;
 };
-//!!!
-bool isValidChoice(int choice){
-    return not(typeid(choice).name() == "int");
+
+bool menu::isValidChoice(int choice){
+    return ((choice >= 0) && (choice <= this->option.size()));
 };

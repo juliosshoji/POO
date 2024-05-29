@@ -10,6 +10,7 @@ Junho de 2024
 
 #include <string>
 #include <vector>
+
 using namespace std;
 class menu {
 
@@ -29,6 +30,8 @@ class menu {
         int getChoice();
         void drawLine();
         void drawMenu();
+
+        bool isValidChoice(int choice);
 };
 
 #endif

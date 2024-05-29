@@ -8,15 +8,27 @@ June, 2024
 
 #define CONTROLLER_HPP_
 
+#include <iostream>
 #include <vector>
+#include <string>
+#include <memory>
+#include "menu.hpp"
 
 using namespace std;
+
 class controller {
 
     private:
     public:
+        controller(int code);
+        ~controller();
         void start();
-        void actionReport();
+        void doAction(string menuTitle, vector<string> nameItens, vector<void (controller:: *)()> actions);
+        void menuReport();
+        void menuSeries();
+        void menuHelp();
+        void menuInfo();
+
         //criar opcoes dos submenus
 };
 
