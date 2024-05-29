@@ -1,0 +1,78 @@
+/* 
+Júlio Shoji Zotovici Kobayashi
+Classe Menu do projeto de POO I
+Junho de 2024
+*/
+
+#include "menu.hpp"
+#include <iostream>
+#include <iomanip>
+#include <typeinfo>
+
+using namespace std;
+
+bool isValidChoice(int choice);
+
+menu::menu(vector<string> &option, string title, string pattern) : option(option), title(title), pattern(pattern){
+    this->setWidth();
+};
+
+menu::~menu(){
+};
+
+void menu::setWidth(){
+    string bigoption = option[0];
+    for (string option : this->option)
+    {
+        if(option.length() > bigoption.length()) {bigoption = option;}
+    }
+    if(this->title.length() > bigoption.length())
+        this->width = this->title.length();
+    else
+        this->width = bigoption.length() * 3;
+};
+
+void menu::setPattern(const string &pattern){
+    this->pattern = pattern;
+};
+
+void menu::setTitle(const string &title){
+    this->title = title;
+};
+
+void menu::drawMenu(){
+    
+    drawLine();
+    cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
+    drawLine();
+    for(int index = 0; index < this->option.size(); index++){
+        cout << endl;
+        cout << setw(this->width/this->title.length()) << index + 1 << ". ";
+        cout << this->option[index] << endl;
+    }
+    drawLine();
+    drawLine();
+    cout << endl;
+
+};
+
+void menu::drawLine(){
+    cout << endl;
+    for(int position = 0; position <= this->width; position++){
+        cout << this->pattern;
+    }
+    cout << endl;
+};
+
+int menu::getChoice(){
+    int choice;
+    do{
+        cin >> choice;
+    } while (isValidChoice(choice));
+    cout << "Valid choice!" << endl;
+    return choice;
+};
+//!!!
+bool isValidChoice(int choice){
+    return not(typeid(choice).name() == "int");
+};
