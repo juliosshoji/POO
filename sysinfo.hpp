@@ -13,6 +13,7 @@ June, 2024
 using namespace std;
 
 class sysinfo{
+
     private:
         string universityName = "UNICAMP - Universidade Estadual de Campinas";
         //Adicionar seus nome aqui
@@ -21,13 +22,14 @@ class sysinfo{
         string instituteName = "FT - Faculdade de Tecnologia";
         string contact = "j245708@dac.unicamp.br";
         string campusAddres = "R. Paschoal Marmo, 1888 - Jardim Nova Italia, Limeira - SP, 13484-332";
-    public:
         string getUniversity();
         vector<string> getCreators();
-        string professorName();
+        string getProfessor();
         string getInstitute();
         string getContact();
         string getCampus();
+    public:
+        string getInfo();
 };
 
 #endif

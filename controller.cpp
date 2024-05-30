@@ -3,7 +3,7 @@ Júlio Shoji Zotovici Kobayashi
 Class Controle do projeto de POO I
 Junho de 2024
 */
-#include <mariadb/conncpp.hpp>
+
 #include "controller.hpp"
 
 using namespace std;
@@ -36,7 +36,8 @@ void controller::menuHelp(){
 };
 
 void controller::menuInfo(){
-    cout << "Menu Creditos" << endl;
+    unique_ptr<sysinfo> sys_on(new sysinfo());
+    cout << sys_on->getInfo() << endl;
 };
 
 void controller::menuReport(){
