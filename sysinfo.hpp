@@ -17,7 +17,7 @@ class sysinfo{
     private:
         string universityName = "UNICAMP - Universidade Estadual de Campinas";
         //Adicionar seus nome aqui
-        vector<string> creatorsNames {"Júlio Shoji Zotovici Kobayashi"}; 
+        vector<string> creatorsNames {"Julio Shoji Zotovici Kobayashi"}; 
         string professorName = "Professor Doutor Andre F. Angelis";
         string instituteName = "FT - Faculdade de Tecnologia";
         string contact = "j245708@dac.unicamp.br";

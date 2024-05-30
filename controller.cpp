@@ -5,6 +5,7 @@ Junho de 2024
 */
 
 #include "controller.hpp"
+#include "sysinfo.hpp"
 
 using namespace std;
 
