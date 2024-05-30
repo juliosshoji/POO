@@ -66,14 +66,14 @@ void controller::deleteSeries(){
 };
 
 void controller::titleReport(){
-    cout < "Relatorio por titulo" << endl;
+    cout << "Relatorio por titulo" << endl;
 };
 void controller::channelReport(){
-    cout < "Relatorio por canal" << endl;
+    cout << "Relatorio por canal" << endl;
 };
 void controller::yearReport(){
-    cout < "Relatorio por ano" << endl;
+    cout << "Relatorio por ano" << endl;
 };
 void controller::gradeReport(){
-    cout < "Relatorio por nota" << endl;
+    cout << "Relatorio por nota" << endl;
 };
