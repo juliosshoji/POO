@@ -1,3 +1,8 @@
+/* 
+Júlio Shoji Zotovici Kobayashi
+Class Controle do projeto de POO I
+Junho de 2024
+*/
 #include <mariadb/conncpp.hpp>
 #include "controller.hpp"
 
@@ -35,9 +40,13 @@ void controller::menuInfo(){
 };
 
 void controller::menuReport(){
-    cout << "Menu Relatorios" << endl;
+    vector<string> reportItens {"Ordenar por titulo","Ordenar por canal/streaming", "Ordenar por ano", "Ordenar por nota"};
+    vector<void (controller:: *)()> actions {&controller::titleReport, &controller::channelReport, &controller::yearReport, &controller::gradeReport};
+    this->doAction("Menu de Relatorio", reportItens, actions);
 };
 
 void controller::menuSeries(){
-    cout << "Menu Series" << endl;
+    vector<string> seriesItens {"Novo registro","Recuperar registro", "Editar registro", "Excluir registro"};
+    vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
+    this->doAction("Menu de Series", seriesItens, actions);
 };
