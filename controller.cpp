@@ -1,3 +1,4 @@
+#include <mariadb/conncpp.hpp>
 #include "controller.hpp"
 
 using namespace std;
