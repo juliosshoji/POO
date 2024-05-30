@@ -8,6 +8,7 @@ June, 2024
 
 #define CONTROLLER_HPP_
 
+#include <conio.h>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,10 +21,10 @@ class controller {
 
     private:
     public:
-        controller(int code);
+        controller();
         ~controller();
         void start();
-        void doAction(string menuTitle, vector<string> nameItens, vector<void (controller:: *)()> actions);
+        bool doAction(string menuTitle, vector<string> nameItens, vector<void (controller:: *)()> actions);
         void menuReport();
         void menuSeries();
         void menuHelp();

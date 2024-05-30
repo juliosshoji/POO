@@ -9,10 +9,10 @@ June, 2024
 
 int main(){
     try {
-        int code = 11;
-        unique_ptr<controller> SysControl(new controller(code)); 
+        unique_ptr<controller> SysControl(new controller()); 
     }
     catch(exception& except){
         cerr << "An error ocurred: " << except.what();
     };
+    return 0;
 };

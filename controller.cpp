@@ -7,27 +7,32 @@ Junho de 2024
 #include "controller.hpp"
 #include "sysinfo.hpp"
 
+
 using namespace std;
 
-controller::controller(int code){
+void exitPress();
+
+controller::controller(){
     this->start();
 };
 controller::~controller(){};
 void controller::start(){
     vector<string> mainItens {"Series","Relatorios", "Ajuda", "Creditos"};
     vector<void (controller:: *)()> actions {&controller::menuSeries, &controller::menuReport, &controller::menuHelp, &controller::menuInfo};
-    this->doAction("Main Menu", mainItens, actions);
+    while (this->doAction("Main Menu", mainItens, actions));
 };
 
-void controller::doAction(string menuTitle, vector<string> nameItens, vector<void (controller:: *)()> actions){
+bool controller::doAction(string menuTitle, vector<string> nameItens, vector<void (controller:: *)()> actions){
     unique_ptr<menu> doMenu(new menu(nameItens, menuTitle, "*"));
     doMenu->drawMenu();
     int choice = doMenu->getChoice();
-    cout << choice << endl;
     if(choice != 0)
         (this->*actions.at(choice - 1))();
-    else
-        cout << "Saindo!" << endl;
+    else{
+         cout << endl <<  "Saindo!" << endl;
+         return false;
+    }
+    return true;
 };
 
 void controller::menuHelp(){
@@ -44,13 +49,17 @@ void controller::menuInfo(){
 void controller::menuReport(){
     vector<string> reportItens {"Ordenar por titulo","Ordenar por canal/streaming", "Ordenar por ano", "Ordenar por nota"};
     vector<void (controller:: *)()> actions {&controller::titleReport, &controller::channelReport, &controller::yearReport, &controller::gradeReport};
-    this->doAction("Menu de Relatorio", reportItens, actions);
+    while(this->doAction("Menu de Relatorio", reportItens, actions)){
+        getch();
+    };
 };
 
 void controller::menuSeries(){
     vector<string> seriesItens {"Novo registro","Recuperar registro", "Editar registro", "Excluir registro"};
     vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
-    this->doAction("Menu de Series", seriesItens, actions);
+    while(this->doAction("Menu de Series", seriesItens, actions)){
+        getch();
+    }
 };
 
 void controller::includeSeries(){
@@ -61,7 +70,6 @@ void controller::recoverySeries(){
 };
 void controller::editSeries(){
     cout << "Editando registro" << endl;
-
 };
 void controller::deleteSeries(){
     cout << "Deletando registro" << endl;
@@ -70,6 +78,7 @@ void controller::deleteSeries(){
 void controller::titleReport(){
     cout << "Relatorio por titulo" << endl;
 };
+
 void controller::channelReport(){
     cout << "Relatorio por canal" << endl;
 };
@@ -79,3 +88,4 @@ void controller::yearReport(){
 void controller::gradeReport(){
     cout << "Relatorio por nota" << endl;
 };
+
