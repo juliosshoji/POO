@@ -1,7 +1,7 @@
 /* 
 Júlio Shoji Zotovici Kobayashi
-Class Controle do projeto de POO I
-Junho de 2024
+Class controller
+June, 2024
 */
 
 #include "controller.hpp"
