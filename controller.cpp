@@ -50,3 +50,30 @@ void controller::menuSeries(){
     vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
     this->doAction("Menu de Series", seriesItens, actions);
 };
+
+void controller::includeSeries(){
+    cout << "Novo registro" << endl;
+};
+void controller::recoverySeries(){
+    cout << "Recuperando registro" << endl;
+};
+void controller::editSeries(){
+    cout << "Editando registro" << endl;
+
+};
+void controller::deleteSeries(){
+    cout << "Deletando registro" << endl;
+};
+
+void controller::titleReport(){
+    cout < "Relatorio por titulo" << endl;
+};
+void controller::channelReport(){
+    cout < "Relatorio por canal" << endl;
+};
+void controller::yearReport(){
+    cout < "Relatorio por ano" << endl;
+};
+void controller::gradeReport(){
+    cout < "Relatorio por nota" << endl;
+};
