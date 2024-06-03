@@ -44,6 +44,7 @@ void controller::menuHelp(){
 void controller::menuInfo(){
     unique_ptr<sysinfo> sys_on(new sysinfo());
     cout << sys_on->getInfo() << endl;
+    getch();
 };
 
 void controller::menuReport(){
