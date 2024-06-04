@@ -8,6 +8,7 @@ June, 2024
 
 #define SERVERDBCONNECTION_HPP_
 
+#include <iostream>
 #include <string>
 #include <mariadb/conncpp.hpp>
 
