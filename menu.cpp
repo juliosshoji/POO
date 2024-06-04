@@ -5,9 +5,6 @@ June, 2024
 */
 
 #include "menu.hpp"
-#include <iostream>
-#include <iomanip>
-#include <typeinfo>
 
 using namespace std;
 

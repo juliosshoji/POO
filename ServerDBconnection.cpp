@@ -27,5 +27,6 @@ ServerDBconnection::ServerDBconnection(){
 };
 
 sql::Connection* ServerDBconnection::getConnection() const{
-
+    unique_ptr<sql::Connection*> connection();
+    return connection;
 };

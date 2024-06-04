@@ -10,6 +10,9 @@ June, 2024
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <iomanip>
+#include <typeinfo>
 
 using namespace std;
 class menu {
