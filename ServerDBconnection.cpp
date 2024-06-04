@@ -15,7 +15,7 @@ ServerDBconnection::ServerDBconnection(){
         this->driver = sql::mariadb::get_driver_instance();
         //Configurando conexão
         sql::SQLString url("jdbc:mariadb://" + this->serverIP + ":" + this->serverPort + "/" + this->serverDatabase);
-        sql::Properties properties({"user", this->serverUser}, {"password", this->serverPassword});
+        sql::Properties properties({{"user", this->serverUser}, {"password", this->serverPassword}});
         //Estabelecendo conexão
         this->connection = driver->connect(url, properties);
     }
@@ -26,6 +26,6 @@ ServerDBconnection::ServerDBconnection(){
     
 };
 
-const sql::Connection* ServerDBconnection::getConnection(){
+sql::Connection* ServerDBconnection::getConnection() const{
 
 };
