@@ -10,7 +10,7 @@ June, 2024
 
 using namespace std;
 
-class AbstractSeriesDAO 
+class AbstractSeriesDAO {
     public:
         virtual void connectDB();
 

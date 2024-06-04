@@ -20,7 +20,7 @@ class ServerDBconnection {
 		sql::Connection *connection;
 		string serverDatabase = "Si300A2024_11";
         string serverPort = "3306";
-		string serverUser = "xxxxxxx";
+		string serverUser = "Si300A2024_11";
 		string serverPassword = "eT8GhbM1JQ";
         string serverIP = "143.106.243.64";
 
