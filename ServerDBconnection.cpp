@@ -27,6 +27,10 @@ ServerDBconnection::ServerDBconnection(){
     
 };
 
+ServerDBconnection::~ServerDBconnection(){
+    this->connection->close();
+};
+
 sql::Connection* ServerDBconnection::getConnection() const{
     return this->connection;
 };
