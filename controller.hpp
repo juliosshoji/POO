@@ -8,7 +8,6 @@ June, 2024
 
 #define CONTROLLER_HPP_
 
-#include <conio.h>
 #include <iostream>
 #include <vector>
 #include <string>

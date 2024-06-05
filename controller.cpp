@@ -44,14 +44,14 @@ void controller::menuHelp(){
 void controller::menuInfo(){
     unique_ptr<sysinfo> sys_on(new sysinfo());
     cout << sys_on->getInfo() << endl;
-    getch();
+    getchar();
 };
 
 void controller::menuReport(){
     vector<string> reportItens {"Ordenar por titulo","Ordenar por canal/streaming", "Ordenar por ano", "Ordenar por nota"};
     vector<void (controller:: *)()> actions {&controller::titleReport, &controller::channelReport, &controller::yearReport, &controller::gradeReport};
     while(this->doAction("Menu de Relatorio", reportItens, actions)){
-        getch();
+        getchar();
     };
 };
 
@@ -59,7 +59,7 @@ void controller::menuSeries(){
     vector<string> seriesItens {"Novo registro","Recuperar registro", "Editar registro", "Excluir registro"};
     vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
     while(this->doAction("Menu de Series", seriesItens, actions)){
-        getch();
+        getchar();
     }
 };
 
