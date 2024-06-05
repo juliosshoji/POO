@@ -17,7 +17,8 @@ ServerDBconnection::ServerDBconnection(){
         sql::SQLString url("jdbc:mariadb://" + this->serverIP + ":" + this->serverPort + "/" + this->serverDatabase);
         sql::Properties properties({{"user", this->serverUser}, {"password", this->serverPassword}});
         //Estabelecendo conexão
-        this->connection(driver->connect(url, properties));
+        std::unique_ptr<sql::Connection> conn(driver->connect(url, properties));
+        this->connection = conn;
     }
     catch(const std::exception& e)
     {
