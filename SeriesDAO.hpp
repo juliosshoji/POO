@@ -21,7 +21,7 @@ class SeriesDAO final : public AbstractSeriesDAO {
         //Mensagens padrao
         const string addSeriesTxt = "insert into SERIES (Field, Type) values (?,?)";
         const string getSeriesbyID = "select * from SERIES where internal_id = ?";
-                const string getSeriesOrderbyTitle = "select * from SERIES order by Field";
+        const string getSeriesOrderbyTitle = "select * from SERIES order by Field";
         const string getSeriesOrderbyNetwork = "select * from SERIES order by network";
         const string getSeriesOrderbyYear = "select * from SERIES order by release_year";
         const string getSeriesOrderbyRating = "select * from SERIES order by rating";
@@ -33,7 +33,6 @@ class SeriesDAO final : public AbstractSeriesDAO {
 
 
     public:
-
         //Funcoes de request do menu
 
 };
