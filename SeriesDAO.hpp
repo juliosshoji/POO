@@ -19,7 +19,15 @@ class SeriesDAO final : public AbstractSeriesDAO {
 
     private:
         //Mensagens padrao
-        const string addSeriesTxt = "insert into SERIES (SERIESName, SERIESType) values (?,?)";
+        const string addSeriesTxt = "insert into SERIES (Field, Type) values (?,?)";
+        const string getSeriesbyID = "select * from SERIES where internal_id = ?";
+                const string getSeriesOrderbyTitle = "select * from SERIES order by Field";
+        const string getSeriesOrderbyNetwork = "select * from SERIES order by network";
+        const string getSeriesOrderbyYear = "select * from SERIES order by release_year";
+        const string getSeriesOrderbyRating = "select * from SERIES order by rating";
+        const string updateSeries = "update SERIES set  series_name = ?, Type = ? where internal_id = ?";
+        const string deleteSeries = "delete from SERIES where internal_id = ?";
+
         //Classe para conexao e transferencia de dados
         ServerDBconnection* serverConn;
 
