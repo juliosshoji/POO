@@ -1,6 +1,6 @@
 /* 
 Júlio Shoji Zotovici Kobayashi
-Class SeriesDAO
+Class Series
 June, 2024
 */
 

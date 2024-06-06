@@ -32,14 +32,18 @@ class SeriesDAO final : public AbstractSeriesDAO {
         //Classe para conexao e transferencia de dados
         ServerDBconnection* serverConn;
 
-
     public:
+
+        SeriesDAO(ServerDBconnection* serverConn);
         //Funcoes de request do menu
         void addSeries(Series* Serie);
         void updateSeries(Series* Serie);
         void deleteSeries(Series* Serie);
-
-        
+        Series* getSeriesbyID(int internal_id);
+        vector<Series *> getSeriesOrderByTitle();
+        vector<Series *> getSeriesOrderbyNetwork();
+        vector<Series *> getSeriesOrderbyYear();
+        vector<Series *> getSeriesOrderbyRating();
 
 };
 
