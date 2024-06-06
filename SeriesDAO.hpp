@@ -10,6 +10,7 @@ June, 2024
 
 #include "AbstractSeriesDAO.hpp"
 #include "ServerDBconnection.hpp"
+#include "Series.hpp"
 
 using namespace std;
 
@@ -20,13 +21,13 @@ class SeriesDAO final : public AbstractSeriesDAO {
     private:
         //Mensagens padrao
         const string addSeriesTxt = "insert into SERIES (Field, Type) values (?,?)";
-        const string getSeriesbyID = "select * from SERIES where internal_id = ?";
-        const string getSeriesOrderbyTitle = "select * from SERIES order by Field";
-        const string getSeriesOrderbyNetwork = "select * from SERIES order by network";
-        const string getSeriesOrderbyYear = "select * from SERIES order by release_year";
-        const string getSeriesOrderbyRating = "select * from SERIES order by rating";
-        const string updateSeries = "update SERIES set  series_name = ?, Type = ? where internal_id = ?";
-        const string deleteSeries = "delete from SERIES where internal_id = ?";
+        const string getSeriesbyIDTxt = "select * from SERIES where internal_id = ?";
+        const string getSeriesOrderbyTitleTxt = "select * from SERIES order by Field";
+        const string getSeriesOrderbyNetworkTxt = "select * from SERIES order by network";
+        const string getSeriesOrderbyYearTxt = "select * from SERIES order by release_year";
+        const string getSeriesOrderbyRatingTxt = "select * from SERIES order by rating";
+        const string updateSeriesTxt = "update SERIES set  series_name = ?, Type = ? where internal_id = ?";
+        const string deleteSeriesTxt = "delete from SERIES where internal_id = ?";
 
         //Classe para conexao e transferencia de dados
         ServerDBconnection* serverConn;
@@ -34,6 +35,11 @@ class SeriesDAO final : public AbstractSeriesDAO {
 
     public:
         //Funcoes de request do menu
+        void addSeries(Series* Serie);
+        void updateSeries(Series* Serie);
+        void deleteSeries(Series* Serie);
+
+        
 
 };
 
