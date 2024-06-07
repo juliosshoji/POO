@@ -83,7 +83,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
             RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
             RequestedSeries->setRelease_year(ResultReq->getInt(3));               ResultReq->getInt(4),
             RequestedSeries->setSeason(ResultReq->getInt(4));
-            RequestedSeries->setEpisode_count((ResultReq->getString(5)).c_str());
+            RequestedSeries->setEpisode_count(ResultReq->getString(5));
             RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
             RequestedSeries->setMain_characters((ResultReq->getString(7)).c_str());
             RequestedSeries->setNetwork((ResultReq->getString(8)).c_str());
@@ -101,7 +101,7 @@ vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
     vector<Series *> SeriesByTitle;
     try
     {
-        unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
+        unique_ptr<sql::PreparedStatement> statement = new sql::PreparedStatement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyTitleTxt);
         Series* RequestedSeries;
         while(ResultReq->next()){
