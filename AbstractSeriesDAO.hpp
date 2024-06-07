@@ -12,8 +12,7 @@ using namespace std;
 
 class AbstractSeriesDAO {
     public:
-        virtual void connectDB();
-
+        AbstractSeriesDAO();
         virtual void includeRegister() = 0;
         virtual void recoveryRegister() = 0;
         virtual void editRegister() = 0;
