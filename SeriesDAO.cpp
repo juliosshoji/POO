@@ -71,6 +71,7 @@ void SeriesDAO::deleteSeries(Series* serie){
 };
 
 Series* SeriesDAO::getSeriesbyID(int internal_id){
+    Series* RequestedSeries;
     try
     {
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->prepareStatement(this->getSeriesbyIDTxt));
@@ -78,17 +79,16 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
         sql::ResultSet *ResultReq = statement->executeQuery();
 
         if(ResultReq->next()){
-            Series* RequestedSeries = new Series(
-                ResultReq->getInt(1),
-                ResultReq->getString(2),
-                ResultReq->getInt(3),
-                ResultReq->getInt(4),
-                ResultReq->getInt(5),
-                ResultReq->getString(6),
-                ResultReq->getString(7),
-                ResultReq->getString(8),
-                ResultReq->getInt(9)
-            );
+            
+            RequestedSeries->setInternal_id(ResultReq->getInt(1));
+            RequestedSeries->setSeries_name(ResultReq->getString(2));
+            RequestedSeries->setRelease_year(ResultReq->getInt(3));               ResultReq->getInt(4),
+            RequestedSeries->setSeason(ResultReq->getInt(4));
+            RequestedSeries->setEpisode_count(ResultReq->getString(5));
+            RequestedSeries->setMain_actors(ResultReq->getString(6));
+            RequestedSeries->setMain_characters(ResultReq->getString(7));
+            RequestedSeries->setNetwork(ResultReq->getString(8));
+            RequestedSeries->setRating(ResultReq->getInt(9));
         }
     }
     catch(const std::exception& e)

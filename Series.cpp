@@ -30,10 +30,6 @@ Series::Series(string series_name, int release_year, int season, int episode_cou
     }       
 };
 
-Series::Series(){
-
-};
-
 int Series::getInternal_id(){
     return this->internal_id;
 };
