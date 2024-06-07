@@ -13,6 +13,9 @@ June, 2024
 #include <string>
 #include <memory>
 #include "menu.hpp"
+#include "sysinfo.hpp"
+#include "SeriesDAO.hpp"
+#include "operation.hpp"
 
 using namespace std;
 

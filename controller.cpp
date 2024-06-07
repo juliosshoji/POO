@@ -5,8 +5,6 @@ June, 2024
 */
 
 #include "controller.hpp"
-#include "sysinfo.hpp"
-#include "SeriesDAO.hpp"
 
 using namespace std;
 
@@ -64,7 +62,11 @@ void controller::menuSeries(){
 };
 
 void controller::includeSeries(){
-    cout << "Novo registro" << endl;
+    vector<string> questions {"Qual o nome da serie?","Em que ano essa serie foi lancada? ", "Quantas temporadas possui?", "Quantos episodios possui?", "Quais os atores principais?", "Quais os personagens principais?", "Em qual canal/streaming e possivel assistir?", "Qual a nota dessa serie?"};
+    unique_ptr<operation> includeSeriesOp = new operation(questions, "Novo Registro", "*");
+    vector<string> answers = includeSeriesOp->doUserQA();
+    unique_ptr<Series> newSeries = new Series(answers[0], stoi(answers[1]), stoi(answers[2]), stoi(answers[3]), answers[4], answers[5], answers[6], stoi(answers(7)));
+    cout << newSeries->getInternal_id() << endl;
 };
 void controller::recoverySeries(){
     cout << "Recuperando registro" << endl;

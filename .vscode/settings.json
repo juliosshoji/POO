@@ -61,6 +61,7 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "iomanip": "cpp",
-    "string_view": "cpp"
+    "string_view": "cpp",
+    "iosfwd": "cpp"
   }
 }

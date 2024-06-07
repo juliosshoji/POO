@@ -4,8 +4,6 @@ Class operation
 June, 2024
 */
 
-#include <string>
-#include <iostream>
 #include "operation.hpp"
 
 using namespace std;
@@ -27,7 +25,7 @@ void operation::setWidth(){
     else
         this->width = bigquestion.length() * 3;
 };
-vector<string *> operation::doUserQA(){
+vector<string> operation::doUserQA(){
     this->drawLine();
     cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
     this->drawLine();
@@ -38,6 +36,7 @@ vector<string *> operation::doUserQA(){
         cout << setw(this->width/this->title.length()) << this->questions[i] << endl;
         cin >> singleAnswer;
         answers.push_back(singleAnswer);
-    }   
+    }
+    this->drawLine();
 };
 

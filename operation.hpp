@@ -8,6 +8,8 @@ June, 2024
 
 #define OPERATION_HPP_
 
+#include <string>
+#include <iostream>
 #include "menu.hpp"
 #include "Series.hpp"
 
@@ -19,8 +21,8 @@ class operation : public menu {
 
     public:
 
-        operation(vector<string> &question, string title, string pattern);
-        vector<string *> doUserQA();
+        operation(vector<string> &questions, string title, string pattern);
+        vector<string> doUserQA();
         void setWidth();
 
 };

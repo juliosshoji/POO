@@ -21,7 +21,7 @@ class menu {
         void drawMenu();
 
         bool isValidChoice(int choice);
-        
+
     protected:
         string title;
         string pattern;
