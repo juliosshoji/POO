@@ -101,7 +101,7 @@ vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
     vector<Series *> SeriesByTitle;
     try
     {
-        unique_ptr<sql::PreparedStatement> statement = new sql::PreparedStatement(serverConn->getConnection()->createStatement());
+        unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyTitleTxt);
         Series* RequestedSeries;
         while(ResultReq->next()){
