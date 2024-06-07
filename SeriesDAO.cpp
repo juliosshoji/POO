@@ -13,7 +13,7 @@ SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) : serverConn(serverConn){
 void SeriesDAO::addSeries(Series* serie){
     try
     {
-        sql::StatementPrepared* statement(serverConn->getConnection()->prepareStatement(this->addSeriesTxt));
+        sql::PreparedStatement* statement(serverConn->getConnection()->prepareStatement(this->addSeriesTxt));
         statement->setInt(1, serie->getInternal_id());
         statement->setString(2, serie->getSeries_name());
         statement->setInt(3, serie->getRelease_year());
