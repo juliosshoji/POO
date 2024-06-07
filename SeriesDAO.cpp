@@ -6,7 +6,7 @@ June, 2024
 
 #include "SeriesDAO.hpp"
 
-SeriesDAO(ServerDBconnection* serverConn) : serverConn(serverConn){
+SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) : serverConn(serverConn){
 
 };
 
@@ -14,15 +14,15 @@ void SeriesDAO::addSeries(Series* serie){
     try
     {
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->prepareStatement(this->addSeriesTxt));
-        statement->setInt(1, serie->getInternal_id);
-        statement->setString(2, serie->getSeries_name);
-        statement->setInt(3, serie->getRelease_year);
-        statement->setInt(4, serie->getSeason);
-        statement->setInt(5, serie->getEpisode_count);
-        statement->setString(6, serie->getMain_actors);
-        statement->setString(7, serie->getMain_characters);
-        statement->setString(8, serie->getNetwork);
-        statement->setInt(9, serie->getRating);
+        statement->setInt(1, serie->getInternal_id());
+        statement->setString(2, serie->getSeries_name());
+        statement->setInt(3, serie->getRelease_year());
+        statement->setInt(4, serie->getSeason());
+        statement->setInt(5, serie->getEpisode_count());
+        statement->setString(6, serie->getMain_actors());
+        statement->setString(7, serie->getMain_characters());
+        statement->setString(8, serie->getNetwork());
+        statement->setInt(9, serie->getRating());
         statement->executeQuery();
     }
     catch(const std::exception& e)
@@ -37,15 +37,15 @@ void SeriesDAO::updateSeries(Series* serie){
     try
     {
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->prepareStatement(this->updateSeriesTxt));
-        statement->setString(1, serie->getSeries_name);
-        statement->setInt(2, serie->getRelease_year);
-        statement->setInt(3, serie->getSeason);
-        statement->setInt(4, serie->getEpisode_count);
-        statement->setString(5, serie->getMain_actors);
-        statement->setString(6, serie->getMain_characters);
-        statement->setString(7, serie->getNetwork);
-        statement->setInt(8, serie->getRating);
-        statement->setInt(9, serie->getInternal_id);
+        statement->setString(1, serie->getSeries_name());
+        statement->setInt(2, serie->getRelease_year());
+        statement->setInt(3, serie->getSeason());
+        statement->setInt(4, serie->getEpisode_count());
+        statement->setString(5, serie->getMain_actors());
+        statement->setString(6, serie->getMain_characters());
+        statement->setString(7, serie->getNetwork());
+        statement->setInt(8, serie->getRating());
+        statement->setInt(9, serie->getInternal_id());
         statement->executeQuery();
     }
     catch(const std::exception& e)
@@ -60,7 +60,7 @@ void SeriesDAO::deleteSeries(Series* serie){
     try
     {
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->prepareStatement(this->deleteSeriesTxt));
-        statement->setInt(1, serie->getInternal_id);
+        statement->setInt(1, serie->getInternal_id());
         statement->executeQuery();
     }
     catch(const std::exception& e)
