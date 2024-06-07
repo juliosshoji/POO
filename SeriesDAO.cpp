@@ -77,7 +77,6 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->prepareStatement(this->getSeriesbyIDTxt));
         statement->setInt(1, internal_id);
         sql::ResultSet *ResultReq = statement->executeQuery();
-
         if(ResultReq->next()){
             
             RequestedSeries->setInternal_id(ResultReq->getInt(1));
@@ -99,9 +98,9 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
 };
 
 vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
-     try
+    vector<Series *> SeriesByTitle;
+    try
     {
-        vector<Series *> SeriesByTitle;
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyTitleTxt);
         Series* RequestedSeries;
@@ -128,12 +127,13 @@ vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
 };
 
 vector<Series *> SeriesDAO::getSeriesOrderbyNetwork(){
-     try
+    vector<Series *> SeriesByNetwork;
+    try
     {
-        vector<Series *> SeriesByNetwork;
+        
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyNetworkTxt);
-        Series* RequestedSeries = new Series();
+        Series* RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
@@ -156,12 +156,13 @@ vector<Series *> SeriesDAO::getSeriesOrderbyNetwork(){
     return SeriesByNetwork;
 };
 vector<Series *> SeriesDAO::getSeriesOrderbyYear(){
-     try
+    vector<Series *> SeriesByYear;
+    try
     {
-        vector<Series *> SeriesByYear;
+        
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyYearTxt);
-        Series* RequestedSeries = new Series();
+        Series* RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
@@ -184,12 +185,12 @@ vector<Series *> SeriesDAO::getSeriesOrderbyYear(){
     return SeriesByYear;
 };
 vector<Series *> SeriesDAO::getSeriesOrderbyRating(){
-     try
+    vector<Series *> SeriesByRating;
+    try
     {
-        vector<Series *> SeriesByRating;
         unique_ptr<sql::PreparedStatement> statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyRatingTxt);
-        Series* RequestedSeries = new Series();
+        Series* RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());

@@ -18,8 +18,7 @@ class menu {
 
     private: 
         vector<string> option;
-        void drawMenu();
-
+        
         bool isValidChoice(int choice);
 
     protected:
@@ -28,7 +27,8 @@ class menu {
         int width;
 
     public:
-        menu(vector<string> &option, string title = "Menu", string pattern = "*"); 
+        menu(vector<string> &option, string title = "Menu", string pattern = "*");
+        menu(string title, string pattern);
         ~menu();
         void setPattern(const string &pattern);
         void setTitle(const string &title);
@@ -36,6 +36,7 @@ class menu {
         void setDecorator();
         int getChoice();
         void drawLine();
+        void drawMenu();
         
 
        

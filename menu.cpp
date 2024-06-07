@@ -14,6 +14,10 @@ menu::menu(vector<string> &option, string title, string pattern) : option(option
     this->setWidth();
 };
 
+menu::menu(string title, string pattern) : title(title), pattern(pattern) {
+    this->setWidth();
+};
+
 menu::~menu(){
 };
 

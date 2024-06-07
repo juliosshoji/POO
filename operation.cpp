@@ -8,10 +8,9 @@ June, 2024
 
 using namespace std;
 
-operation::operation(vector<string> &questions, string title, string pattern){
+
+operation::operation(vector<string> &questions, string title, string pattern) : menu(title,pattern){
     this->questions = questions;
-    this->title = title;
-    this->pattern = pattern;
 };
 
 void operation::setWidth(){
@@ -38,5 +37,7 @@ vector<string> operation::doUserQA(){
         answers.push_back(singleAnswer);
     }
     this->drawLine();
+
+    return answers;
 };
 
