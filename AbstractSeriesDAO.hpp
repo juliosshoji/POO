@@ -1,6 +1,6 @@
 /* 
 Júlio Shoji Zotovici Kobayashi
-Class Controller
+Class AbstractSeriesDAO
 June, 2024
 */
 

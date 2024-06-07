@@ -6,7 +6,7 @@ June, 2024
 
 #include "SeriesDAO.hpp"
 
-SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) : serverConn(serverConn) : AbstractSeriesDAO(){
+SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) :  AbstractSeriesDAO(), serverConn(serverConn){
 
 };
 
