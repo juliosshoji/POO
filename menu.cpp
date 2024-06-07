@@ -83,3 +83,20 @@ int menu::getChoice(){
 bool menu::isValidChoice(int choice){
     return ((choice >= 0) && (choice <= this->option.size()));
 };
+
+vector<string> menu::doUserQA(){
+    this->drawLine();
+    cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
+    this->drawLine();
+    vector<string> answers;
+    string singleAnswer;
+    for (size_t i = 0; i < this->option.size(); i++){
+        cout << endl;
+        cout << setw(this->width/this->title.length()) << this->option[i] << endl;
+        cin >> singleAnswer;
+        answers.push_back(singleAnswer);
+    }
+    this->drawLine();
+
+    return answers;
+};

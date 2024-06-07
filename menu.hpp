@@ -37,7 +37,7 @@ class menu {
         int getChoice();
         void drawLine();
         void drawMenu();
-        
+        vector<string> doUserQA();
 
        
 };
