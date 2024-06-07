@@ -13,7 +13,7 @@ SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) : serverConn(serverConn){
 void SeriesDAO::addSeries(Series* serie){
     try
     {
-        sql::Statement* statement(serverConn->getConnection()->prepareStatement(this->addSeriesTxt));
+        sql::StatementPrepared* statement(serverConn->getConnection()->prepareStatement(this->addSeriesTxt));
         statement->setInt(1, serie->getInternal_id());
         statement->setString(2, serie->getSeries_name());
         statement->setInt(3, serie->getRelease_year());
@@ -36,7 +36,7 @@ void SeriesDAO::updateSeries(Series* serie){
 
     try
     {
-        sql::Statement* statement(serverConn->getConnection()->prepareStatement(this->updateSeriesTxt));
+        sql::PreparedStatement* statement(serverConn->getConnection()->prepareStatement(this->updateSeriesTxt));
         statement->setString(1, serie->getSeries_name());
         statement->setInt(2, serie->getRelease_year());
         statement->setInt(3, serie->getSeason());
@@ -59,7 +59,7 @@ void SeriesDAO::deleteSeries(Series* serie){
     
     try
     {
-        sql::Statement* statement(serverConn->getConnection()->prepareStatement(this->deleteSeriesTxt));
+        sql::PreparedStatement* statement(serverConn->getConnection()->prepareStatement(this->deleteSeriesTxt));
         statement->setInt(1, serie->getInternal_id());
         statement->executeQuery();
     }
@@ -74,7 +74,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
     Series* RequestedSeries;
     try
     {
-        sql::Statement* statement(serverConn->getConnection()->prepareStatement(this->getSeriesbyIDTxt));
+        sql::PreparedStatement* statement(serverConn->getConnection()->prepareStatement(this->getSeriesbyIDTxt));
         statement->setInt(1, internal_id);
         sql::ResultSet *ResultReq = statement->executeQuery();
         if(ResultReq->next()){
