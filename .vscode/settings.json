@@ -60,6 +60,7 @@
     "string": "cpp",
     "iostream": "cpp",
     "ostream": "cpp",
-    "iomanip": "cpp"
+    "iomanip": "cpp",
+    "string_view": "cpp"
   }
 }

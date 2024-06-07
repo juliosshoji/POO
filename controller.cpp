@@ -6,7 +6,7 @@ June, 2024
 
 #include "controller.hpp"
 #include "sysinfo.hpp"
-
+#include "SeriesDAO.hpp"
 
 using namespace std;
 

@@ -12,14 +12,18 @@ June, 2024
 #include <vector>
 #include <iostream>
 #include <iomanip>
-#include <typeinfo>
 
 using namespace std;
 class menu {
 
-    private:
-        string title;
+    private: 
         vector<string> option;
+        void drawMenu();
+
+        bool isValidChoice(int choice);
+        
+    protected:
+        string title;
         string pattern;
         int width;
 
@@ -28,13 +32,13 @@ class menu {
         ~menu();
         void setPattern(const string &pattern);
         void setTitle(const string &title);
-        void setWidth();
+        virtual void setWidth();
         void setDecorator();
         int getChoice();
         void drawLine();
-        void drawMenu();
+        
 
-        bool isValidChoice(int choice);
+       
 };
 
 #endif
