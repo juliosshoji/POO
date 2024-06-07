@@ -22,11 +22,11 @@ class SeriesDAO final : public AbstractSeriesDAO {
         //Mensagens padrao
         const string addSeriesTxt = "insert into SERIES (Field, Type) values (?,?)";
         const string getSeriesbyIDTxt = "select * from SERIES where internal_id = ?";
-        const string getSeriesOrderbyTitleTxt = "select * from SERIES order by Field";
+        const string getSeriesOrderbyTitleTxt = "select * from SERIES order by series_name";
         const string getSeriesOrderbyNetworkTxt = "select * from SERIES order by network";
         const string getSeriesOrderbyYearTxt = "select * from SERIES order by release_year";
         const string getSeriesOrderbyRatingTxt = "select * from SERIES order by rating";
-        const string updateSeriesTxt = "update SERIES set  series_name = ?, Type = ? where internal_id = ?";
+        const string updateSeriesTxt = "update SERIES set  series_name = ?, release_year = ?, season = ?, episode_count = ?, main_actors = ?, main_characters = ?, network = ?, rating = ? where internal_id = ?";
         const string deleteSeriesTxt = "delete from SERIES where internal_id = ?";
 
         //Classe para conexao e transferencia de dados

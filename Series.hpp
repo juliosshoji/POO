@@ -27,7 +27,8 @@ class Series {
     public:
 
         Series(int, string, int, int,int, string, string , string, int);
-
+        Series();
+        
         int getInternal_id();
         string getSeries_name();
         int getRelease_year();
