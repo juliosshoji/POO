@@ -74,8 +74,9 @@ void controller::includeSeries(){
 void controller::recoverySeries(){
     vector<string> questions {"Qual o ID da serie?"};
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Recuperando um registro", "*"));
-    vector<string> answers = includeSeriesOp->doUserQA();
-    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(answers[0]);
+    int internal_id;
+    cin >> internal_id;
+    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
     includeSeriesOp->drawLine();
     recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
