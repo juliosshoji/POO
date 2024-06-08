@@ -41,6 +41,7 @@ class controller {
         void yearReport();
         void gradeReport();
 
+        ServerDBconnection serverConn*;
         SeriesDAO SeriesDB; 
 };
 

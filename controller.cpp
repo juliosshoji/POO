@@ -11,7 +11,8 @@ using namespace std;
 void exitPress();
 
 controller::controller(){
-    this->SeriesDB = new SeriesDAO();
+    this->serverConn = new ServerDBconnection();
+    this->SeriesDB = new SeriesDAO(serverConn);
     this->start();
 };
 controller::~controller(){};
