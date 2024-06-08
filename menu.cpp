@@ -96,7 +96,7 @@ vector<string> menu::doUserQA(){
         for (size_t i = 0; i < this->option.size(); i++){
             cout << endl;
             cout << setw(this->width/this->title.length()) << this->option[i] << endl;
-            cin >> singleAnswer;
+            getline(cin, singleAnswer);
             answers.push_back(singleAnswer);
         }
         this->drawLine();

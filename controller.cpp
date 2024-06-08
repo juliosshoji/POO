@@ -62,43 +62,10 @@ void controller::menuSeries(){
 };
 
 void controller::includeSeries(){
-    try
-    {
         vector<string> questions {"Qual o nome da serie?","Em que ano essa serie foi lancada? ", "Quantas temporadas possui?", "Quantos episodios possui?", "Quais os atores principais?", "Quais os personagens principais?", "Em qual canal/streaming e possivel assistir?", "Qual a nota dessa serie?"};
         unique_ptr<menu> includeSeriesOp(new menu(questions, "Novo Registro", "*"));
-        
-        
-        string series_name;
-        cout << questions[0] << endl;
-        cin >> series_name;
-        int release_year;
-        cout << questions[1] << endl;
-        cin >> release_year;
-        int season;
-        cout << questions[2] << endl;
-        cin >> season;
-        int episode_count;
-        cout << questions[3] << endl;
-        cin >> episode_count;
-        string main_actors;
-        cout << questions[4] << endl;
-        cin >> main_actors;
-        string main_characters;
-        cout << questions[5] << endl;
-        cin >> main_characters;
-        string network;
-        cout << questions[6] << endl;
-        cin >> network;
-        int rating;
-        cout << questions[7] << endl;
-        cin >> rating;
-        unique_ptr<Series> newSeries(new Series(series_name, release_year, season, episode_count, main_actors, main_characters, network, rating));
+        unique_ptr<Series> newSeries(new Series(answers[0], stoi(answers[1]), stoi(answers[2]), stoi(answers[3]), answers[4], answers[5], answers[6], stoi(answers[7])));
         cout << newSeries->getInternal_id() << endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << "including series " << '\n';
-    }
 };
 void controller::recoverySeries(){
     cout << "Recuperando registro" << endl;
