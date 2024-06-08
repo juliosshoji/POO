@@ -68,7 +68,7 @@ void controller::includeSeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Novo Registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     unique_ptr<Series> addingSerie(new Series(answers[0], stoi(answers[1]), stoi(answers[2]), stoi(answers[3]), answers[4], answers[5], answers[6], stoi(answers[7])));
-    this->SeriesDB->addSeries(addingSerie);
+    this->SeriesDB->addSeries(&addingSerie);
     cout << endl << "Novo Registro Criado" << endl;
 };
 void controller::recoverySeries(){
