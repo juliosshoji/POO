@@ -13,10 +13,10 @@ using namespace std;
 class AbstractSeriesDAO {
     public:
         AbstractSeriesDAO();
-        virtual void includeRegister() = 0;
-        virtual void recoveryRegister() = 0;
-        virtual void editRegister() = 0;
-        virtual void deleteRegister() = 0;
+        virtual void adduser() = 0;
+        virtual Series* getSeriesbyID() = 0;
+        virtual void updateSeries() = 0;
+        virtual void deleteSeries() = 0;
 
 };
 
