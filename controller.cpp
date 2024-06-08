@@ -12,7 +12,7 @@ void exitPress();
 
 controller::controller(){
     this->serverConn = new ServerDBconnection();
-    this->SeriesDB = new SeriesDAO(serverConn);
+    this->SeriesDB = new SeriesDAO(&serverConn);
     this->start();
 };
 controller::~controller(){};
