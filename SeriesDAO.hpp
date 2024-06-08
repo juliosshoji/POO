@@ -37,7 +37,7 @@ class SeriesDAO final : public AbstractSeriesDAO {
         SeriesDAO(ServerDBconnection* serverConn);
         //Funcoes de request do menu
         virtual void addSeries(Series* Serie);
-        virtual updateSeries(Series* Serie);
+        virtual void updateSeries(Series* Serie);
         virtual void deleteSeries(Series* Serie);
         virtual Series* getSeriesbyID(int internal_id);
         vector<Series *> getSeriesOrderByTitle();
