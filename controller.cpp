@@ -11,6 +11,7 @@ using namespace std;
 void exitPress();
 
 controller::controller(){
+    this->SeriesDB = new SeriesDAO();
     this->start();
 };
 controller::~controller(){};
@@ -66,6 +67,7 @@ void controller::includeSeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Novo Registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     unique_ptr<Series> newSeries(new Series(answers[0], stoi(answers[1]), stoi(answers[2]), stoi(answers[3]), answers[4], answers[5], answers[6], stoi(answers[7])));
+    SeriesDB->addUsers(newSeries);
     cout << endl << "Novo Registro Criado" << endl;
 };
 void controller::recoverySeries(){
