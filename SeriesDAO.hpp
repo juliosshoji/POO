@@ -16,7 +16,7 @@ using namespace std;
 
 //Cria um objeto dessa classe quando entra no menu Series e dependendo do que o usuario ecolher, chama cada metodo diferente
 
-class SeriesDAO final : public AbstractSeriesDAO {
+class SeriesDAO {
 
     private:
         //Mensagens padrao
