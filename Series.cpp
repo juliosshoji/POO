@@ -16,19 +16,18 @@ series_name(series_name), release_year(release_year), season(season), episode_co
 Series::Series(string series_name, int release_year, int season, int episode_count, string main_actors, string main_characters, string network, int rating) : series_name(series_name), release_year(release_year), season(season), episode_count(episode_count), main_actors(main_actors), main_characters(main_characters), network(network), rating(rating){
     try
     {
-        fstream lastIDfile;
-        lastIDfile.open("lastcreatedID.txt", fstream::out | fstream::in);
+        ifstream lastIDfile;
+        lastIDfile.open("lastcreatedID.txt", fstream::in);
         string lastID;
         getline(lastIDfile, lastID);
-        cout << lastID << "Last ID" << endl;
-
         this->setInternal_id(stoi(lastID) + 1);
-
-        cout << this->getInternal_id() << "New ID" << endl;
-        
-        lastIDfile << stoi(lastID) + 1;
         lastIDfile.close();
-    }
+        remove("lastcreatedID.txt");
+        ofstream newIDfile;
+        newIDfile.open("lastcreatedID.txt", fstream::out);
+        newIDfile << this->getInternal_id();
+        newIDfile.close();
+    }   
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
