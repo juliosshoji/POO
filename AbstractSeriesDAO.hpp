@@ -8,6 +8,7 @@ June, 2024
 
 #define ABSTRACTSERIESDAO_HPP_
 
+#include "Series.hpp"
 using namespace std;
 
 class AbstractSeriesDAO {
