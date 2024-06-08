@@ -42,7 +42,7 @@ class controller {
         void gradeReport();
 
         ServerDBconnection* serverConn;
-        SeriesDAO SeriesDB; 
+        SeriesDAO* SeriesDB; 
 };
 
 #endif
