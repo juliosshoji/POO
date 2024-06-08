@@ -89,3 +89,15 @@ void Series::setNetwork(string network){
 void Series::setRating(int rating){
     this->rating = rating;
 };
+
+void Series::printSeries(){
+    cout << endl << "Codigo da serie: " << this->internal_id << endl;
+    cout << "Nome da serie: " << this->series_name << endl;
+    cout << "Ano de lancamento: " << this->release_year << endl;
+    cout << "Numero de Temporadas: " << this->season << endl;
+    cout << "Numero de episodios: " << this->episode_count << endl;
+    cout << "Principais atores/atrizes: " << this->main_actors << endl;
+    cout << "Principais personagens: " << this->main_characters << endl;
+    cout << "Canal/Streaming: " << this->network << endl;
+    cout << "Nota: " << this->rating << endl << endl;
+};

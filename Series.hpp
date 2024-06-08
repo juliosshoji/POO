@@ -50,6 +50,8 @@ class Series {
         void setMain_characters(string getMain_characters);
         void setNetwork(string network);
         void setRating(int rating);
+
+        void printSeries();
 };
 
 #endif

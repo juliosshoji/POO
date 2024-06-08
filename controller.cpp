@@ -72,7 +72,14 @@ void controller::includeSeries(){
     cout << endl << "Novo Registro Criado" << endl;
 };
 void controller::recoverySeries(){
-    cout << "Recuperando registro" << endl;
+    vector<string> questions {"Qual o ID da serie?"};
+    unique_ptr<menu> includeSeriesOp(new menu(questions, "Recuperando um registro", "*"));
+    vector<string> answers = includeSeriesOp->doUserQA();
+    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(answers[0]);
+    includeSeriesOp->drawLine();
+    recoveredSeries->printSeries();
+    includeSeriesOp->drawLine();
+    cout << endl << "Registro Recuperado" << endl;
 };
 void controller::editSeries(){
     cout << "Editando registro" << endl;
