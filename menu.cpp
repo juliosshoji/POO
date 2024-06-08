@@ -85,7 +85,7 @@ bool menu::isValidChoice(int choice){
 };
 
 vector<string> menu::doUserQA(){
-    vector<void *> answers;
+    vector<string> answers;
     try
     {
         this->drawLine();
