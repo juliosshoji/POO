@@ -20,8 +20,12 @@ Series::Series(string series_name, int release_year, int season, int episode_cou
         lastIDfile.open("lastcreatedID.txt", fstream::out | fstream::in);
         string lastID;
         getline(lastIDfile, lastID);
-        cout << lastID;
+        cout << lastID << "Last ID" << endl;
+
         this->setInternal_id(stoi(lastID) + 1);
+
+        cout << this->getInternal_id() << "New ID" << endl;
+        
         lastIDfile << stoi(lastID) + 1;
         lastIDfile.close();
     }
