@@ -150,7 +150,7 @@ void controller::titleReport(){
     unique_ptr<menu> reportMenu(new menu("Relatorio por titulo", "*"));
     vector<Series* >*  reportList;
     reportList->push_back(&*reportMenu);
-    reportMenu->drawReport(reportList);
+    reportMenu->drawReport(&reportList);
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
