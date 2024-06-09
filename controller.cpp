@@ -149,7 +149,7 @@ void controller::titleReport(){
     unique_ptr<Series> testSerie(new Series(1, "Bridgerton", 2020, 3, 21, "Phoebe Dynevor", "Daphne Bridgerton", "Netflix", 10));
     unique_ptr<menu> reportMenu(new menu("Relatorio por titulo", "*"));
     vector<string> reportList;
-    reportList.push_back(&reportMenu);
+    reportList->push_back(&*reportMenu);
     reportMenu->drawReport(reportList);
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
