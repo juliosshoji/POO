@@ -37,7 +37,7 @@ bool controller::doAction(string menuTitle, vector<string> nameItens, vector<voi
 
 void controller::menuHelp(){
 
-    cout << "Menu Ajuda" << endl;
+    unique_ptr<help> doHelp(new help());
 
 };
 
