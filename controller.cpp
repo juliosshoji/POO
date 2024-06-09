@@ -37,14 +37,15 @@ bool controller::doAction(string menuTitle, vector<string> nameItens, vector<voi
 
 void controller::menuHelp(){
 
-    getchar();
     unique_ptr<help> doHelp(new help());
+    getchar();
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 
 };
 
 void controller::menuInfo(){
+    
     getchar();
     unique_ptr<sysinfo> sys_on(new sysinfo());
     cout << endl << sys_on->getInfo() << endl;
