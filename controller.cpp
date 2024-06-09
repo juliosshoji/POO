@@ -37,6 +37,7 @@ bool controller::doAction(string menuTitle, vector<string> nameItens, vector<voi
 
 void controller::menuHelp(){
 
+    getchar();
     unique_ptr<help> doHelp(new help());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
@@ -55,7 +56,6 @@ void controller::menuReport(){
     vector<string> reportItens {"Ordenar por titulo","Ordenar por canal/streaming", "Ordenar por ano", "Ordenar por nota"};
     vector<void (controller:: *)()> actions {&controller::titleReport, &controller::channelReport, &controller::yearReport, &controller::gradeReport};
     while(this->doAction("Menu de Relatorio", reportItens, actions)){
-        cout << endl << "Pressione Enter para continuar..." << endl;
         getchar();
     };
 };
@@ -64,7 +64,6 @@ void controller::menuSeries(){
     vector<string> seriesItens {"Novo registro","Recuperar registro", "Editar registro", "Excluir registro"};
     vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
     while(this->doAction("Menu de Series", seriesItens, actions)){
-        cout << endl << "Pressione Enter para continuar..." << endl;
         getchar();
     }
 };
