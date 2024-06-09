@@ -105,7 +105,7 @@ vector<string> menu::doUserQA(){
 };
 
 void menu::drawReport(vector<Series* > reportResult){
-    this->width = 122;
+    this->width = 93;
     this->drawLine();
     cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
     this->drawLine();
@@ -132,6 +132,5 @@ void menu::drawReport(vector<Series* > reportResult){
     }
     cout << this->pattern << setw(this->width) << this->pattern << endl;
     this->drawLine();
-    cout << endl << this->title << endl;
     this->drawLine();
 };
