@@ -72,8 +72,8 @@ void controller::includeSeries(){
     addingSerie->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Enter para confirmar" << endl;
-    string sendConfirm = getchar();
-    if(sendConfirm == "*"){
+    char sendConfirm = getchar();
+    if(sendConfirm == 42){
         cout << "Cancelado!" << endl;
         return;
     }
@@ -102,8 +102,8 @@ void controller::editSeries(){
     updatingSerie->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Enter para confirmar ou * para cancelar" << endl;
-    string sendConfirm = getchar();
-    if(sendConfirm == "*"){
+    char sendConfirm = getchar();
+    if(sendConfirm == 42){
         cout << "Cancelado!" << endl;
         return;
     }
@@ -121,8 +121,8 @@ void controller::deleteSeries(){
     recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Enter para prosseguir ou * para cancelar" << endl;
-    string sendConfirm = getchar();
-    if(sendConfirm == "*"){
+    char sendConfirm = getchar();
+    if(sendConfirm == 42){
         cout << "Cancelado!" << endl;
         return;
     }
