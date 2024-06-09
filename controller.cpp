@@ -38,6 +38,7 @@ bool controller::doAction(string menuTitle, vector<string> nameItens, vector<voi
 void controller::menuHelp(){
 
     unique_ptr<help> doHelp(new help());
+    getchar();
 
 };
 
