@@ -12,6 +12,7 @@ June, 2024
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include "Series.hpp"
 
 using namespace std;
 class menu {
@@ -37,8 +38,8 @@ class menu {
         int getChoice();
         void drawLine();
         void drawMenu();
+        void drawReport(vector<Series* > reportResult);
         vector<string> doUserQA();
-
        
 };
 

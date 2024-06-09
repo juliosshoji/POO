@@ -15,7 +15,9 @@ controller::controller(){
     this->SeriesDB = new SeriesDAO(serverConn);
     this->start();
 };
+
 controller::~controller(){};
+
 void controller::start(){
     vector<string> mainItens {"Series","Relatorios", "Ajuda", "Creditos"};
     vector<void (controller:: *)()> actions {&controller::menuSeries, &controller::menuReport, &controller::menuHelp, &controller::menuInfo};
@@ -45,7 +47,7 @@ void controller::menuHelp(){
 };
 
 void controller::menuInfo(){
-    
+
     getchar();
     unique_ptr<sysinfo> sys_on(new sysinfo());
     cout << endl << sys_on->getInfo() << endl;
@@ -142,7 +144,15 @@ void controller::deleteSeries(){
 };
 
 void controller::titleReport(){
-    cout << "Relatorio por titulo" << endl;
+
+    unique_ptr<menu> includeSeriesOp(new menu("Relatorio por titulo", "*"));
+    unique_ptr<Series> testSerie(new Series(1, "Bridgerton", 2020, 21, "Phoebe Dynevor", "Daphne Bridgerton", "Netflix", 10));
+    unique_ptr<menu> reportMenu(new menu("Relatorio por titulo", "*"));
+    vector<string *> reportList;
+    reportList.push_back(&reportMenu);
+    reportMenu->drawReport(reportList);
+    cout << endl << "Pressione Enter para continuar..." << endl;
+    getchar();
 };
 
 void controller::channelReport(){

@@ -15,7 +15,7 @@ menu::menu(vector<string> &option, string title, string pattern) : option(option
 };
 
 menu::menu(string title, string pattern) : title(title), pattern(pattern) {
-    this->setWidth();
+
 };
 
 menu::~menu(){
@@ -28,9 +28,9 @@ void menu::setWidth(){
         if(option.length() > bigoption.length()) {bigoption = option;}
     }
     if(this->title.length() > bigoption.length())
-        this->width = this->title.length();
+        this->width = this->title.length() * 2;
     else
-        this->width = bigoption.length() * 3;
+        this->width = bigoption.length() * 2;
 };
 
 void menu::setPattern(const string &pattern){
@@ -102,4 +102,27 @@ vector<string> menu::doUserQA(){
     
     
     return answers;
+};
+
+void menu::drawReport(vector<Series* > reportResult){
+    this->width = 70;
+    this->drawLine();
+    cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
+    this->drawLine();
+    cout << this->pattern << setw(this->width) << this->pattern << endl;
+    for(Series* serie : reportResult){
+        cout << this->pattern << " " << serie->getInternal_id();
+        cout << " " << this->pattern << " " << setw(10) << serie->getSeries_name();
+        cout << " " << this->pattern << " " << setw(5) << serie->getRelease_year();
+        cout << " " << this->pattern << " " << setw(4) << serie->getSeason();
+        cout << " " << this->pattern << " " << setw(6) << serie->getEpisode_count();
+        cout << " " << this->pattern << " " << setw(15) << serie->getMain_actors();
+        cout << " " << this->pattern << " " << setw(15) << serie->getMain_characters();
+        cout << " " << this->pattern << " " << setw(10) << serie->getNetwork();
+        cout << " " << this->pattern << " " << setw(3) << serie->getRating() << " " << this->pattern << " " << endl;
+    }
+    cout << this->pattern << setw(this->width) << this->pattern << endl;
+    this->drawLine();
+    cout << endl << this->title << endl;
+    this->drawLine();
 };
