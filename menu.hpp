@@ -38,7 +38,7 @@ class menu {
         int getChoice();
         void drawLine();
         void drawMenu();
-        void drawReport(vector<Series* >* reportResult);
+        void drawReport(vector<Series* > reportResult);
         vector<string> doUserQA();
        
 };
