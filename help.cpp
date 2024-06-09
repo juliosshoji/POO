@@ -7,26 +7,25 @@ June, 2024
 #include "help.hpp"
 
 help::help(){
-    cout << this->helpPage() << endl;
+    this->helpPage();
 };
 
-string help::helpPage(){
-    
-    string finalHelp;
+void help::helpPage(){
+
     try
     {
         string buffer;
         ifstream helpArchive;
         helpArchive.open("helpArchive.txt", fstream::in);
-        finalHelp = "";
+
         while(!helpArchive.eof()){
             getline(helpArchive, buffer);
-            finalHelp += buffer;
+            cout << buffer << endl;
         }
+        cout << endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    return finalHelp;
 };

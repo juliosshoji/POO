@@ -19,7 +19,7 @@ class help {
     public:
         
         help();
-        string helpPage();
+        void helpPage();
 
 };
 
