@@ -110,7 +110,7 @@ void menu::drawReport(vector<Series* > reportResult){
     cout << setw((this->width/2)+(this->title.length()/2)) << endl << this->title << endl;
     this->drawLine();
     cout << this->pattern << setw(this->width) << this->pattern << endl;
-    cout << this->pattern << " " << "ID";
+    cout << this->pattern << " " << setw(3) << "ID";
     cout << " " << this->pattern << " " << setw(10) << "Nome";
     cout << " " << this->pattern << " " << setw(5) << "Ano";
     cout << " " << this->pattern << " " << setw(4) << "Temp";
@@ -120,7 +120,7 @@ void menu::drawReport(vector<Series* > reportResult){
     cout << " " << this->pattern << " " << setw(12) << "Plataforma";
     cout << " " << this->pattern << " " << setw(3) << "Nota" << " " << this->pattern << " " << endl;
     for(Series* serie : reportResult){
-        cout << this->pattern << " " << serie->getInternal_id();
+        cout << this->pattern << " " << setw(3) << serie->getInternal_id();
         cout << " " << this->pattern << " " << setw(10) << serie->getSeries_name();
         cout << " " << this->pattern << " " << setw(5) << serie->getRelease_year();
         cout << " " << this->pattern << " " << setw(4) << serie->getSeason();
