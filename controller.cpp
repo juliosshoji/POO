@@ -68,8 +68,18 @@ void controller::includeSeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Novo Registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     unique_ptr<Series> addingSerie(new Series(answers[0], stoi(answers[1]), stoi(answers[2]), stoi(answers[3]), answers[4], answers[5], answers[6], stoi(answers[7])));
+    includeSeriesOp->drawLine();
+    addingSerie->printSeries();
+    includeSeriesOp->drawLine();
+    cout << endl << "Enter para confirmar" << endl;
+    char sendConfirm = getchar();
+    if(sendConfirm == "*"){
+        cout << "Cancelado!" << endl;
+        return;
+    }
     this->SeriesDB->addSeries(&*addingSerie);
     cout << endl << "Novo Registro Criado" << endl;
+    getchar();
 };
 void controller::recoverySeries(){
     vector<string> questions {"Qual o ID da serie?"};
@@ -81,12 +91,44 @@ void controller::recoverySeries(){
     recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Registro Recuperado" << endl;
+    getchar();
 };
 void controller::editSeries(){
-    cout << "Editando registro" << endl;
+    vector<string> questions {"Digite o ID da serie:", "Qual o nome da serie?","Em que ano essa serie foi lancada? ", "Quantas temporadas possui?", "Quantos episodios possui?", "Quais os atores principais?", "Quais os personagens principais?", "Em qual canal/streaming e possivel assistir?", "Qual a nota dessa serie?"};
+    unique_ptr<menu> includeSeriesOp(new menu(questions, "Editando Registro", "*"));
+    vector<string> answers = includeSeriesOp->doUserQA();
+    unique_ptr<Series> updatingSerie(new Series(stoi(answers[0]),answers[1], stoi(answers[2]), stoi(answers[3]), stoi(answers[4]), answers[5], answers[6], answers[7], stoi(answers[8])));
+    includeSeriesOp->drawLine();
+    updatingSerie->printSeries();
+    includeSeriesOp->drawLine();
+    cout << endl << "Enter para confirmar ou * para cancelar" << endl;
+    char sendConfirm = getchar();
+    if(sendConfirm == "*"){
+        cout << "Cancelado!" << endl;
+        return;
+    }
+    this->SeriesDB->updateSeries(&*updatingSerie);
+    cout << endl << "Mudancas aplicadas" << endl;
+    getchar();
 };
 void controller::deleteSeries(){
-    cout << "Deletando registro" << endl;
+    vector<string> questions {"Qual o ID da serie?"};
+    unique_ptr<menu> includeSeriesOp(new menu(questions, "Deletando um registro", "*"));
+    vector<string> answers = includeSeriesOp->doUserQA();
+    int internal_id = stoi(answers[0]);
+    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
+    includeSeriesOp->drawLine();
+    recoveredSeries->printSeries();
+    includeSeriesOp->drawLine();
+    cout << endl << "Enter para prosseguir ou * para cancelar" << endl;
+    char sendConfirm = getchar();
+    if(sendConfirm == "*"){
+        cout << "Cancelado!" << endl;
+        return;
+    }
+    this->SeriesDB->deleteSeries(&*recoveredSeries);
+    cout << endl << "Serie deletada!" << endl;
+    getchar();
 };
 
 void controller::titleReport(){
