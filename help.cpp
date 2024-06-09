@@ -23,6 +23,7 @@ void help::helpPage(){
             cout << buffer << endl;
         }
         cout << endl;
+        getchar();
     }
     catch(const std::exception& e)
     {
