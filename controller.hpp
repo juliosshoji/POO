@@ -12,6 +12,7 @@ June, 2024
 #include <vector>
 #include <string>
 #include <memory>
+#include "help.hpp"
 #include "menu.hpp"
 #include "sysinfo.hpp"
 #include "SeriesDAO.hpp"
