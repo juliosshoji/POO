@@ -2,8 +2,8 @@
 
                                         Menu Ajuda
 
-This system was design for managing a catalogue of straming or TV channel series.
-Go through the system selecting the menu you desire to use typing it's number and pressing enter.
+This system was designed for managing a catalogue of streaming or TV channel series.
+Go through the system selecting the menu you desire to use by typing it's number and pressing enter.
 
 On menu Series you can:
 
