@@ -38,6 +38,7 @@ bool controller::doAction(string menuTitle, vector<string> nameItens, vector<voi
 void controller::menuHelp(){
 
     unique_ptr<help> doHelp(new help());
+    cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 
 };
@@ -46,6 +47,7 @@ void controller::menuInfo(){
     getchar();
     unique_ptr<sysinfo> sys_on(new sysinfo());
     cout << endl << sys_on->getInfo() << endl;
+    cout << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 
@@ -53,6 +55,7 @@ void controller::menuReport(){
     vector<string> reportItens {"Ordenar por titulo","Ordenar por canal/streaming", "Ordenar por ano", "Ordenar por nota"};
     vector<void (controller:: *)()> actions {&controller::titleReport, &controller::channelReport, &controller::yearReport, &controller::gradeReport};
     while(this->doAction("Menu de Relatorio", reportItens, actions)){
+        cout << endl << "Pressione Enter para continuar..." << endl;
         getchar();
     };
 };
@@ -61,6 +64,7 @@ void controller::menuSeries(){
     vector<string> seriesItens {"Novo registro","Recuperar registro", "Editar registro", "Excluir registro"};
     vector<void (controller:: *)()> actions {&controller::includeSeries, &controller::recoverySeries, &controller::editSeries, &controller::deleteSeries};
     while(this->doAction("Menu de Series", seriesItens, actions)){
+        cout << endl << "Pressione Enter para continuar..." << endl;
         getchar();
     }
 };
@@ -81,6 +85,7 @@ void controller::includeSeries(){
     }
     this->SeriesDB->addSeries(&*addingSerie);
     cout << endl << "Novo Registro Criado" << endl;
+    cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 void controller::recoverySeries(){
@@ -93,6 +98,7 @@ void controller::recoverySeries(){
     recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Registro Recuperado" << endl;
+    cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 void controller::editSeries(){
@@ -111,6 +117,7 @@ void controller::editSeries(){
     }
     this->SeriesDB->updateSeries(&*updatingSerie);
     cout << endl << "Mudancas aplicadas" << endl;
+    cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 void controller::deleteSeries(){
@@ -130,6 +137,7 @@ void controller::deleteSeries(){
     }
     this->SeriesDB->deleteSeries(&*recoveredSeries);
     cout << endl << "Serie deletada!" << endl;
+    cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 
