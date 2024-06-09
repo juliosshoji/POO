@@ -118,7 +118,7 @@ void menu::drawReport(vector<Series* > reportResult){
     cout << " " << this->pattern << " " << setw(19) << "Principais Atores";
     cout << " " << this->pattern << " " << setw(24) << "Principais Personagens";
     cout << " " << this->pattern << " " << setw(12) << "Plataforma";
-    cout << " " << this->pattern << " " << setw(3) << "Nota" << " " << this->pattern << " " << endl;
+    cout << " " << this->pattern << " " << setw(5) << "Nota" << " " << this->pattern << " " << endl;
     for(Series* serie : reportResult){
         cout << this->pattern << " " << setw(3) << serie->getInternal_id();
         cout << " " << this->pattern << " " << setw(10) << serie->getSeries_name();
