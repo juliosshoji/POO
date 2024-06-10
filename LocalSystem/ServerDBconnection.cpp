@@ -9,7 +9,7 @@ June, 2024
 using namespace std;
 
 ServerDBconnection::ServerDBconnection(){
-    serieMem = vector<Series *>();
+    serieMem = vector<Series>();
 };
 
 ServerDBconnection::~ServerDBconnection(){
@@ -23,7 +23,7 @@ void ServerDBconnection::close(){
     serieMem.clear();
 };
 
-void ServerDBconnection::addSeries(Series* serie){
+void ServerDBconnection::addSeries(Series serie){
     try
     {
         this->serieMem.push_back(serie);
@@ -51,8 +51,8 @@ void ServerDBconnection::deleteSeries(int internal_id){
         std::cerr << e.what() << '\n';
     }
 };
-void ServerDBconnection::updateSeries(Series* serie){
-    this->deleteSeries(serie->getInternal_id());
+void ServerDBconnection::updateSeries(Series serie){
+    this->deleteSeries(serie.getInternal_id());
     this->addSeries(serie);
 };
 vector<Series* > ServerDBconnection::getSeries(){

@@ -20,15 +20,15 @@ class ServerDBconnection {
 
     private:
 
-		vector<Series *> serieMem;
+		vector<Series> serieMem;
 
     public:
 		ServerDBconnection();
 		virtual ~ServerDBconnection();
-		void addSeries(Series* serie);
+		void addSeries(Series serie);
 		void deleteSeries(int internal_id);
-		void updateSeries(Series* serie);
-		vector<Series* > getSeries();
+		void updateSeries(Series serie);
+		vector<Series> getSeries();
 		void close();
 };
 
