@@ -8,6 +8,7 @@ June, 2024
 
 #define SERIESDAO_HPP_
 
+#include <algorithm>
 #include "ServerDBconnection.hpp"
 #include "Series.hpp"
 

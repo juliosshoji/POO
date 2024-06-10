@@ -33,7 +33,9 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     vector<Series> SeriesByTitle;
     try
     {
-        
+        vector<Series> serieList = serverConn->getSeries();
+        sort(serieList.begin(), serieList.end());
+        SeriesByTitle = serieList;
     }
     catch(const std::exception& e)
     {
