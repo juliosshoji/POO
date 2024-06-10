@@ -38,7 +38,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         vector<Series> serieList = serverConn->getSeries();
         vector<Series>::iterator listIterator = serieList.begin();
         for(size_t index1 = 0; index1 < serieList.size(); index1++){
-            for(size_t index2 = 0; index < serieList.size(); index++){
+            for(size_t index2 = 0; index2 < serieList.size(); index2++){
                 s1 = serieList[index2].getSeries_name(); 
                 s2 = serieList[index2+1].getSeries_name(); 
                 if(s1[0] > s2[0]){
