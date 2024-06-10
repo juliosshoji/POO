@@ -31,7 +31,9 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     {
         std::cerr << e.what() << '\n';
     }
-    return *RequestedSeries;
+    RequestedSeries.printSeries();
+    getchar();
+    return RequestedSeries;
 };
 
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
