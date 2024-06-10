@@ -121,13 +121,13 @@ void menu::drawReport(vector<Series> reportResult){
     cout << " " << this->pattern << " " << setw(5) << "Nota" << " " << this->pattern << " " << endl;
     for(Series serie : reportResult){
         cout << this->pattern << " " << setw(3) << serie.getInternal_id();
-        cout << " " << this->pattern << " " << setw(10) << serie.getSeries_name();
+        cout << " " << this->pattern << " " << setw(10) << serie.getSeries_name().substr(0,9);
         cout << " " << this->pattern << " " << setw(5) << serie.getRelease_year();
         cout << " " << this->pattern << " " << setw(4) << serie.getSeason();
         cout << " " << this->pattern << " " << setw(11) << serie.getEpisode_count();
-        cout << " " << this->pattern << " " << setw(19) << serie.getMain_actors();
-        cout << " " << this->pattern << " " << setw(24) << serie.getMain_characters();
-        cout << " " << this->pattern << " " << setw(12) << serie.getNetwork();
+        cout << " " << this->pattern << " " << setw(19) << serie.getMain_actors().substr(0,18);
+        cout << " " << this->pattern << " " << setw(24) << serie.getMain_characters().substr(0,23);
+        cout << " " << this->pattern << " " << setw(12) << serie.getNetwork().substr(0,11);
         cout << " " << this->pattern << " " << setw(5) << serie.getRating() << " " << this->pattern << " " << endl;
     }
     cout << this->pattern << setw(this->width) << this->pattern << endl;
