@@ -39,10 +39,10 @@ class SeriesDAO {
         virtual void updateSeries(Series* Serie);
         virtual void deleteSeries(Series* Serie);
         virtual Series* getSeriesbyID(int internal_id);
-        vector<Series *> getSeriesOrderByTitle();
-        vector<Series *> getSeriesOrderbyNetwork();
-        vector<Series *> getSeriesOrderbyYear();
-        vector<Series *> getSeriesOrderbyRating();
+        vector<Series> getSeriesOrderByTitle();
+        vector<Series> getSeriesOrderbyNetwork();
+        vector<Series> getSeriesOrderbyYear();
+        vector<Series> getSeriesOrderbyRating();
 
 };
 
