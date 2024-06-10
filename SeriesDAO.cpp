@@ -81,7 +81,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
             
             RequestedSeries->setInternal_id(ResultReq->getInt(1));
             RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-            RequestedSeries->setRelease_year(ResultReq->getInt(3));               ResultReq->getInt(4),
+            RequestedSeries->setRelease_year(ResultReq->getInt(3));
             RequestedSeries->setSeason(ResultReq->getInt(4));
             RequestedSeries->setEpisode_count(ResultReq->getInt(5));
             RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
@@ -97,7 +97,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
     return RequestedSeries;
 };
 
-vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
+vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     vector<Series *> SeriesByTitle;
     try
     {
@@ -126,7 +126,7 @@ vector<Series *> SeriesDAO::getSeriesOrderByTitle(){
     return SeriesByTitle;
 };
 
-vector<Series *> SeriesDAO::getSeriesOrderbyNetwork(){
+vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
     vector<Series *> SeriesByNetwork;
     try
     {
@@ -155,7 +155,7 @@ vector<Series *> SeriesDAO::getSeriesOrderbyNetwork(){
 
     return SeriesByNetwork;
 };
-vector<Series *> SeriesDAO::getSeriesOrderbyYear(){
+vector<Series> SeriesDAO::getSeriesOrderbyYear(){
     vector<Series *> SeriesByYear;
     try
     {
@@ -184,7 +184,7 @@ vector<Series *> SeriesDAO::getSeriesOrderbyYear(){
 
     return SeriesByYear;
 };
-vector<Series *> SeriesDAO::getSeriesOrderbyRating(){
+vector<Series> SeriesDAO::getSeriesOrderbyRating(){
     vector<Series *> SeriesByRating;
     try
     {
