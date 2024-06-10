@@ -37,12 +37,12 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         SeriesByTitle = this->serverConn->getSeries();
         Series auxiliar;
         for(size_t indexSecondery = 0; indexSecondery < SeriesByTitle.size(); indexSecondery++){
-            for(size_t indexPrimary = SeriesByTitle.size(); indexPrimary > indexSecondery; indexPrimary--){
-                auxiliar = SeriesByTitle.at(indexPrimary-1);
+            for(size_t indexPrimary = 0; indexPrimary <= indexSecondery; indexPrimary++){
+                auxiliar = SeriesByTitle.at(indexPrimary+1);
                 s1 = SeriesByTitle[indexPrimary].getSeries_name();
                 s2 = auxiliar.getSeries_name();
                 if(s1[0] > s2[0]){
-                    SeriesByTitle.at(indexPrimary-1) = SeriesByTitle.at(indexPrimary);
+                    SeriesByTitle.at(indexPrimary+1) = SeriesByTitle.at(indexPrimary);
                     SeriesByTitle.at(indexPrimary) = auxiliar;
                 }
             }
@@ -64,7 +64,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
         SeriesByNetwork = this->serverConn->getSeries();
         Series auxiliar;
         for(size_t indexSecondery = 0; indexSecondery < SeriesByNetwork.size(); indexSecondery++){
-            for(size_t indexPrimary = SeriesByNetwork.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
+            for(size_t indexPrimary = SeriesByNetwork.size(); indexPrimary > indexSecondery; indexPrimary--){
                 auxiliar = SeriesByNetwork.at(indexPrimary-1);
                 s1 = SeriesByNetwork[indexPrimary].getNetwork();
                 s2 = auxiliar.getNetwork();
