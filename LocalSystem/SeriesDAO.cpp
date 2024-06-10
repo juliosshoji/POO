@@ -35,16 +35,16 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     {   
         string s1, s2;
         Series auxiliar;
-        SeriesByTitle = serverConn->getSeries();
+        *SeriesByTitle = &serverConn->getSeries();
         vector<Series>::iterator listIterator = SeriesByTitle->begin();
         for(size_t index1 = 0; index1 < SeriesByTitle->size(); index1++){
             for(size_t index2 = 0; index2 < SeriesByTitle->size(); index2++){
-                s1 = SeriesByTitle[index2].getSeries_name(); 
-                s2 = SeriesByTitle[index2+1].getSeries_name(); 
+                s1 = *SeriesByTitle[index2].getSeries_name(); 
+                s2 = *SeriesByTitle[index2+1].getSeries_name(); 
                 if(s1[0] > s2[0]){
-                    auxiliar = SeriesByTitle[index2];
-                    SeriesByTitle[index2] = SeriesByTitle[index2+1];
-                    SeriesByTitle[index2+1] = auxiliar; 
+                    auxiliar = *SeriesByTitle[index2];
+                    *SeriesByTitle[index2] = *SeriesByTitle[index2+1];
+                    *SeriesByTitle[index2+1] = auxiliar; 
                 }
             }
         }
