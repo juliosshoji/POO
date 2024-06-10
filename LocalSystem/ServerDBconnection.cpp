@@ -9,11 +9,11 @@ June, 2024
 using namespace std;
 
 ServerDBconnection::ServerDBconnection(){
-    serieMem = (new vector<Series *>);
+    serieMem = new vector<Series *>;
 };
 
 ServerDBconnection::~ServerDBconnection(){
-    this->connection->close();
+    this->close();
 };
 
 void ServerDBconnection::close(){
@@ -23,7 +23,7 @@ void ServerDBconnection::close(){
     serieMem.clear();
 };
 
-void ServerDBconnection::SeraddSeries(Series* serie){
+void ServerDBconnection::addSeries(Series* serie){
     try
     {
         this->seriesMem->pushback(serie);
@@ -36,11 +36,11 @@ void ServerDBconnection::SeraddSeries(Series* serie){
 void ServerDBconnection::deleteSeries(int internal_id){
     try
     {
-        vector<Series *>::iterator seriesIterator = this->serieMem->begin();
-        while(seriesIterator != this->serieMem->end()){
+        vector<Series *>::iterator seriesIterator = this->serieMem.begin();
+        while(seriesIterator != this->serieMem.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
                 delete *seriesIterator;
-                this->serieMem->erase(seriesIterator);
+                this->serieMem.erase(seriesIterator);
                 break;
             }
             seriesIterator++;
@@ -55,6 +55,6 @@ void ServerDBconnection::updateSeries(Series* serie){
     this->deleteSeries(serie->getInternal_id());
     this->addSeries(serie);
 };
-vector<Series* > getSeries(){
+vector<Series* > ServerDBconnection::getSeries(){
     return this->serieMem;
 };

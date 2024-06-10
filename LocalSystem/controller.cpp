@@ -85,7 +85,7 @@ void controller::includeSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->SeriesDB->addSeries(&*addingSerie);
+    this->serverConn->addSeries(&*addingSerie);
     cout << endl << "Novo Registro Criado" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
 };
@@ -116,7 +116,7 @@ void controller::editSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->SeriesDB->updateSeries(&*updatingSerie);
+    this->serverConn->updateSeries(&*updatingSerie);
     cout << endl << "Mudancas aplicadas" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
 };
@@ -135,7 +135,7 @@ void controller::deleteSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->SeriesDB->deleteSeries(&recoveredSeries);
+    this->serverConn->deleteSeries(&recoveredSeries);
     cout << endl << "Serie deletada!" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
 };

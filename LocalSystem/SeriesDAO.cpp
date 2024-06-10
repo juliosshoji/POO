@@ -16,9 +16,9 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     {
         vector<Series *> serieList = this->serverConn->getSeries();
          vector<Series *>::iterator seriesIterator = serieList.begin();
-        while(seriesIterator != serieList->end()){
+        while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
-                RequestedSeries = &(seriesIterator);
+                RequestedSeries = &seriesIterator;
             }
             seriesIterator++;
         }
