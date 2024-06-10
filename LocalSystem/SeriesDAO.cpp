@@ -17,7 +17,6 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
         vector<Series> serieList = this->serverConn->getSeries();
         for(Series serie : serieList){
             if(serie.getInternal_id() == internal_id){
-                serie.printSeries();
                 RequestedSeries = serie;
             }
         }
