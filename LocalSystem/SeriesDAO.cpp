@@ -45,10 +45,10 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
                     SeriesByTitle.at(indexPrimary-1) = SeriesByTitle.at(indexPrimary);
                     SeriesByTitle.at(indexPrimary) = auxiliar;
                 }
-                auxiliar = SeriesByTitle(indexPrimary);
+                auxiliar = SeriesByTitle.at(indexPrimary);
                 indexPrimary++;
             }
-        }
+        } 
     }
     catch(const std::exception& e)
     {
