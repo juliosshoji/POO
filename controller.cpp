@@ -88,7 +88,6 @@ void controller::includeSeries(){
     this->SeriesDB->addSeries(&*addingSerie);
     cout << endl << "Novo Registro Criado" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
-    getchar();
 };
 void controller::recoverySeries(){
     vector<string> questions {"Qual o ID da serie?"};
@@ -101,7 +100,7 @@ void controller::recoverySeries(){
     includeSeriesOp->drawLine();
     cout << endl << "Registro Recuperado" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
-    getchar();
+
 };
 void controller::editSeries(){
     vector<string> questions {"Digite o ID da serie:", "Qual o nome da serie?","Em que ano essa serie foi lancada? ", "Quantas temporadas possui?", "Quantos episodios possui?", "Quais os atores principais?", "Quais os personagens principais?", "Em qual canal/streaming e possivel assistir?", "Qual a nota dessa serie?"};
@@ -120,7 +119,6 @@ void controller::editSeries(){
     this->SeriesDB->updateSeries(&*updatingSerie);
     cout << endl << "Mudancas aplicadas" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
-    getchar();
 };
 void controller::deleteSeries(){
     vector<string> questions {"Qual o ID da serie?"};
@@ -140,7 +138,6 @@ void controller::deleteSeries(){
     this->SeriesDB->deleteSeries(&recoveredSeries);
     cout << endl << "Serie deletada!" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
-    getchar();
 };
 
 void controller::titleReport(){
