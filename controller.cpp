@@ -145,7 +145,7 @@ void controller::deleteSeries(){
 
 void controller::titleReport(){
 
-    unique_ptr<menu> reporMenu(new menu("Relatorio por titulo", "*"));
+    unique_ptr<menu> reportMenu(new menu("Relatorio por titulo", "*"));
     reportMenu->drawReport(this->SeriesDB->getSeriesOrderByTitle());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
@@ -153,19 +153,19 @@ void controller::titleReport(){
 
 void controller::channelReport(){
 
-    unique_ptr<menu> reporMenu(new menu("Relatorio por canal/streaming", "*"));
+    unique_ptr<menu> reportMenu(new menu("Relatorio por canal/streaming", "*"));
     reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyNetwork());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 void controller::yearReport(){
-    unique_ptr<menu> reporMenu(new menu("Relatorio por ano", "*"));
+    unique_ptr<menu> reportMenu(new menu("Relatorio por ano", "*"));
     reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyYear());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 void controller::gradeReport(){
-    unique_ptr<menu> reporMenu(new menu("Relatorio por nota", "*"));
+    unique_ptr<menu> reportMenu(new menu("Relatorio por nota", "*"));
     reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyRating());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
