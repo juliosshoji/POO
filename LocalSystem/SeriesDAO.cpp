@@ -64,7 +64,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
         SeriesByNetwork = this->serverConn->getSeries();
         Series auxiliar;
         for(size_t indexSecondery = 0; indexSecondery < SeriesByNetwork.size(); indexSecondery++){
-            for(size_t indexPrimary = 0; indexPrimary <= indexSecondery; indexPrimary++){
+            for(size_t indexPrimary = 0; indexPrimary < indexSecondery; indexPrimary++){
                 auxiliar = SeriesByNetwork.at(indexPrimary+1);
                 s1 = SeriesByNetwork[indexPrimary].getNetwork();
                 s2 = auxiliar.getNetwork();
