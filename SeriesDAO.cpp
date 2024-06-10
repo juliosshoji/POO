@@ -79,15 +79,15 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
         sql::ResultSet *ResultReq = statement->executeQuery();
         if(ResultReq->next()){
             
-            RequestedSeries->setInternal_id(ResultReq->getInt(1));
-            RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-            RequestedSeries->setRelease_year(ResultReq->getInt(3));
-            RequestedSeries->setSeason(ResultReq->getInt(4));
-            RequestedSeries->setEpisode_count(ResultReq->getInt(5));
-            RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
-            RequestedSeries->setMain_characters((ResultReq->getString(7)).c_str());
-            RequestedSeries->setNetwork((ResultReq->getString(8)).c_str());
-            RequestedSeries->setRating(ResultReq->getInt(9));
+            RequestedSeries.setInternal_id(ResultReq->getInt(1));
+            RequestedSeries.setSeries_name((ResultReq->getString(2)).c_str());
+            RequestedSeries.setRelease_year(ResultReq->getInt(3));
+            RequestedSeries.setSeason(ResultReq->getInt(4));
+            RequestedSeries.setEpisode_count(ResultReq->getInt(5));
+            RequestedSeries.setMain_actors((ResultReq->getString(6)).c_str());
+            RequestedSeries.setMain_characters((ResultReq->getString(7)).c_str());
+            RequestedSeries.setNetwork((ResultReq->getString(8)).c_str());
+            RequestedSeries.setRating(ResultReq->getInt(9));
         }
     }
     catch(const std::exception& e)
@@ -105,15 +105,15 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyTitleTxt);
         Series RequestedSeries;
         while(ResultReq->next()){
-                RequestedSeries->setInternal_id(ResultReq->getInt(1));
-                RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-                RequestedSeries->setRelease_year(ResultReq->getInt(3));
-                RequestedSeries->setSeason(ResultReq->getInt(4));
-                RequestedSeries->setEpisode_count(ResultReq->getInt(5));
-                RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
-                RequestedSeries->setMain_characters((ResultReq->getString(7)).c_str());
-                RequestedSeries->setNetwork((ResultReq->getString(8)).c_str());
-                RequestedSeries->setRating(ResultReq->getInt(9));
+                RequestedSeries.setInternal_id(ResultReq->getInt(1));
+                RequestedSeries.setSeries_name((ResultReq->getString(2)).c_str());
+                RequestedSeries.setRelease_year(ResultReq->getInt(3));
+                RequestedSeries.setSeason(ResultReq->getInt(4));
+                RequestedSeries.setEpisode_count(ResultReq->getInt(5));
+                RequestedSeries.setMain_actors((ResultReq->getString(6)).c_str());
+                RequestedSeries.setMain_characters((ResultReq->getString(7)).c_str());
+                RequestedSeries.setNetwork((ResultReq->getString(8)).c_str());
+                RequestedSeries.setRating(ResultReq->getInt(9));
 
                 SeriesByTitle.push_back(RequestedSeries);
         }
@@ -135,15 +135,15 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyNetworkTxt);
         Series RequestedSeries;
         while(ResultReq->next()){
-                RequestedSeries->setInternal_id(ResultReq->getInt(1));
-                RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-                RequestedSeries->setRelease_year(ResultReq->getInt(3));
-                RequestedSeries->setSeason(ResultReq->getInt(4));
-                RequestedSeries->setEpisode_count(ResultReq->getInt(5));
-                RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
-                RequestedSeries->setMain_characters((ResultReq->getString(7)).c_str());
-                RequestedSeries->setNetwork((ResultReq->getString(8)).c_str());
-                RequestedSeries->setRating(ResultReq->getInt(9));
+                RequestedSeries.setInternal_id(ResultReq->getInt(1));
+                RequestedSeries.setSeries_name((ResultReq->getString(2)).c_str());
+                RequestedSeries.setRelease_year(ResultReq->getInt(3));
+                RequestedSeries.setSeason(ResultReq->getInt(4));
+                RequestedSeries.setEpisode_count(ResultReq->getInt(5));
+                RequestedSeries.setMain_actors((ResultReq->getString(6)).c_str());
+                RequestedSeries.setMain_characters((ResultReq->getString(7)).c_str());
+                RequestedSeries.setNetwork((ResultReq->getString(8)).c_str());
+                RequestedSeries.setRating(ResultReq->getInt(9));
 
                 SeriesByNetwork.push_back(RequestedSeries);
         }
@@ -164,15 +164,15 @@ vector<Series> SeriesDAO::getSeriesOrderbyYear(){
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyYearTxt);
         Series RequestedSeries;
         while(ResultReq->next()){
-                RequestedSeries->setInternal_id(ResultReq->getInt(1));
-                RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-                RequestedSeries->setRelease_year(ResultReq->getInt(3));
-                RequestedSeries->setSeason(ResultReq->getInt(4));
-                RequestedSeries->setEpisode_count(ResultReq->getInt(5));
-                RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
-                RequestedSeries->setMain_characters((ResultReq->getString(7)).c_str());
-                RequestedSeries->setNetwork((ResultReq->getString(8)).c_str());
-                RequestedSeries->setRating(ResultReq->getInt(9));
+                RequestedSeries.setInternal_id(ResultReq->getInt(1));
+                RequestedSeries.setSeries_name((ResultReq->getString(2)).c_str());
+                RequestedSeries.setRelease_year(ResultReq->getInt(3));
+                RequestedSeries.setSeason(ResultReq->getInt(4));
+                RequestedSeries.setEpisode_count(ResultReq->getInt(5));
+                RequestedSeries.setMain_actors((ResultReq->getString(6)).c_str());
+                RequestedSeries.setMain_characters((ResultReq->getString(7)).c_str());
+                RequestedSeries.setNetwork((ResultReq->getString(8)).c_str());
+                RequestedSeries.setRating(ResultReq->getInt(9));
 
                 SeriesByYear.push_back(RequestedSeries);
         }
@@ -192,14 +192,14 @@ vector<Series> SeriesDAO::getSeriesOrderbyRating(){
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyRatingTxt);
         Series RequestedSeries;
         while(ResultReq->next()){
-                RequestedSeries->setInternal_id(ResultReq->getInt(1));
-                RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
-                RequestedSeries->setRelease_year(ResultReq->getInt(3));
-                RequestedSeries->setSeason(ResultReq->getInt(4));
-                RequestedSeries->setEpisode_count(ResultReq->getInt(5));
-                RequestedSeries->setMain_actors((ResultReq->getString(6)).c_str());
-                RequestedSeries->setMain_characters((ResultReq->getString(8)).c_str());
-                RequestedSeries->setRating(ResultReq->getInt(9));
+                RequestedSeries.setInternal_id(ResultReq->getInt(1));
+                RequestedSeries.setSeries_name((ResultReq->getString(2)).c_str());
+                RequestedSeries.setRelease_year(ResultReq->getInt(3));
+                RequestedSeries.setSeason(ResultReq->getInt(4));
+                RequestedSeries.setEpisode_count(ResultReq->getInt(5));
+                RequestedSeries.setMain_actors((ResultReq->getString(6)).c_str());
+                RequestedSeries.setMain_characters((ResultReq->getString(8)).c_str());
+                RequestedSeries.setRating(ResultReq->getInt(9));
 
                 SeriesByRating.push_back(RequestedSeries);
         }
