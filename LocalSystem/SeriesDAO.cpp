@@ -32,10 +32,20 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     vector<Series> SeriesByTitle;
     try
-    {
+    {   
+        string s1, s2;
+        Series auxiliar;
         vector<Series> serieList = serverConn->getSeries();
-        sort(serieList.begin(), serieList.end());
-        SeriesByTitle = serieList;
+        vector<Series>::iterator listIterator = serieList.begin();
+        while(listIterator != serieList.end()){
+            s1 = *listIterator->getSeries_name();
+            s2 = *++listIterator->getSeries_name()
+            if(s2[0] > s1[0]){
+                auxiliar = *listIterator;
+                *listIterator = *++listIterator;
+                *++listIterator = auxiliar;
+            }
+        }
     }
     catch(const std::exception& e)
     {
