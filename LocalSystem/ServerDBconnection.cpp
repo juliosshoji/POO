@@ -17,9 +17,6 @@ ServerDBconnection::~ServerDBconnection(){
 };
 
 void ServerDBconnection::close(){
-    for(Series serie : this->serieMem){
-        delete serie;
-    }
     serieMem.clear();
 };
 
