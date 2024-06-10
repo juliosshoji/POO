@@ -29,7 +29,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
     {
         std::cerr << e.what() << '\n';
     }
-    return RequestedSeries;
+    return &RequestedSeries;
 };
 
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
