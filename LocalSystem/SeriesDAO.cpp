@@ -33,6 +33,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     }
     RequestedSeries.printSeries();
     getchar();
+    getchar();
     return RequestedSeries;
 };
 
