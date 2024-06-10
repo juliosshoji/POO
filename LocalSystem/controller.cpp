@@ -15,13 +15,13 @@ controller::controller(){
     this->SeriesDB = new SeriesDAO(serverConn);
     this->start();
 
-    Series serie1(0, "Bridgerton", 2020, 3, 21, "Phoebe", "Daphne", "Netflix", 10);
-    Series serie2(1, "Arrow", 2012, 8, 21, "Stephen Amell", "Oliver Queen", "Prime video", 9);
-    Series serie3(2, "Constantine", 2014, 1, 16, "Matt Ryan", "John Constantine", "HBO MAX", 7);
+    unique_ptr<Series> serie1(new Series(0, "Bridgerton", 2020, 3, 21, "Phoebe", "Daphne", "Netflix", 10));
+    Series serie2(new Series(1, "Arrow", 2012, 8, 21, "Stephen Amell", "Oliver Queen", "Prime video", 9));
+    Series serie3(new Series(2, "Constantine", 2014, 1, 16, "Matt Ryan", "John Constantine", "HBO MAX", 7));
 
-    this->serverConn->addSeries(serie1);
-    this->serverConn->addSeries(serie2);
-    this->serverConn->addSeries(serie3);
+    this->serverConn->addSeries(*serie1);
+    this->serverConn->addSeries(*serie2);
+    this->serverConn->addSeries(*serie3);
 };
 
 controller::~controller(){};
