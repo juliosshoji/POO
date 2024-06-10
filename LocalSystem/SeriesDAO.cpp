@@ -39,7 +39,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         vector<Series>::iterator listIterator = serieList.begin();
         while(listIterator != serieList.end()){
             s1 = listIterator->getSeries_name();
-            s2 = (++listIterator)->getSeries_name()
+            s2 = (++listIterator)->getSeries_name();
             if(s2[0] > s1[0]){
                 auxiliar = listIterator;
                 listIterator = (++listIterator);
