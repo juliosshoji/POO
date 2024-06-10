@@ -70,7 +70,7 @@ void SeriesDAO::deleteSeries(Series* serie){
 
 };
 
-Series* SeriesDAO::getSeriesbyID(int internal_id){
+Series SeriesDAO::getSeriesbyID(int internal_id){
     Series RequestedSeries;
     try
     {
