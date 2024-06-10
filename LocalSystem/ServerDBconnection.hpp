@@ -12,7 +12,7 @@ June, 2024
 #include <iostream>
 #include <string>
 #include <mariadb/conncpp.hpp>
-#include <Series.hpp>
+#include "Series.hpp"
 
 using namespace std;
 
