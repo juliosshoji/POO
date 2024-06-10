@@ -41,7 +41,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
             for(Series serie : SeriesByTitle){
                 s1 = SeriesByTitle[indexPrimary].getSeries_name();
                 s2 = auxiliar.getSeries_name();
-                if(s1[0] > s2[0]){
+                if(s1[0] < s2[0]){
                     SeriesByTitle.at(indexPrimary-1) = SeriesByTitle.at(indexPrimary);
                     SeriesByTitle.at(indexPrimary) = auxiliar;
                 }
