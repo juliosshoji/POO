@@ -9,7 +9,7 @@ June, 2024
 using namespace std;
 
 ServerDBconnection::ServerDBconnection(){
-    serieMem = new vector<Series *>;
+    serieMem = vector<Series *>();
 };
 
 ServerDBconnection::~ServerDBconnection(){
@@ -26,7 +26,7 @@ void ServerDBconnection::close(){
 void ServerDBconnection::addSeries(Series* serie){
     try
     {
-        this->serieMem->pushback(serie);
+        this->serieMem.pushback(serie);
     }
     catch(const std::exception& e)
     {

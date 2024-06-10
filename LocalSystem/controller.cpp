@@ -135,7 +135,7 @@ void controller::deleteSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->serverConn->deleteSeries(recoveredSeries->getInternal_id());
+    this->serverConn->deleteSeries(recoveredSeries.getInternal_id());
     cout << endl << "Serie deletada!" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
 };
