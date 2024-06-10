@@ -12,29 +12,19 @@ SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) :  serverConn(serverConn){
 
 Series SeriesDAO::getSeriesbyID(int internal_id){
     Series RequestedSeries;
-    Series* buffer;
     try
     {
         vector<Series *> serieList = this->serverConn->getSeries();
-        vector<Series *>::iterator seriesIterator = serieList.begin();
-        size_t index = 0;
-        while(seriesIterator != serieList.end()){
-            if((*seriesIterator)->getInternal_id() == internal_id){
-                buffer = *seriesIterator;
-                
-                RequestedSeries = *buffer;
-                break;
+        for(Series* serie : serieList){
+            if(serie->getInternal_id() == internal_id){
+                RequestedSeries = *serie;
             }
-            index++;
-            seriesIterator++;
         }
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    buffer->printSeries();
-    getchar();
     return RequestedSeries;
 };
 
