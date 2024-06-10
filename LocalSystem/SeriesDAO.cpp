@@ -30,25 +30,24 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
 };
 
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
-    vector<Series> SeriesByTitle;
+    unique_ptr<vector<Series>> SeriesByTitle(new vector<Series>);
     try
     {   
         string s1, s2;
         Series auxiliar;
-        vector<Series> serieList = serverConn->getSeries();
-        vector<Series>::iterator listIterator = serieList.begin();
-        for(size_t index1 = 0; index1 < serieList.size(); index1++){
-            for(size_t index2 = 0; index2 < serieList.size(); index2++){
-                s1 = serieList[index2].getSeries_name(); 
-                s2 = serieList[index2+1].getSeries_name(); 
+        SeriesByTitle = serverConn->getSeries();
+        vector<Series>::iterator listIterator = SeriesByTitle->begin();
+        for(size_t index1 = 0; index1 < SeriesByTitle->size(); index1++){
+            for(size_t index2 = 0; index2 < SeriesByTitle->size(); index2++){
+                s1 = SeriesByTitle[index2].getSeries_name(); 
+                s2 = SeriesByTitle[index2+1].getSeries_name(); 
                 if(s1[0] > s2[0]){
-                    auxiliar = serieList[index2];
-                    serieList[index2] = serieList[index2+1];
-                    serieList[index2+1] = auxiliar; 
+                    auxiliar = SeriesByTitle[index2];
+                    SeriesByTitle[index2] = SeriesByTitle[index2+1];
+                    SeriesByTitle[index2+1] = auxiliar; 
                 }
             }
         }
-        SeriesByTitle = serieList;
     }
     catch(const std::exception& e)
     {
