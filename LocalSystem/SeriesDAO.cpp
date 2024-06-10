@@ -85,8 +85,18 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
 vector<Series> SeriesDAO::getSeriesOrderbyYear(){
     vector<Series> SeriesByYear;
     try
-    {
-        
+    { 
+        Series auxiliar;
+        SeriesByYear = this->serverConn->getSeries();
+        for(size_t indexSecondery = 0; indexSecondery < SeriesByYear.size(); indexSecondery++){
+            for(size_t indexPrimary = SeriesByYear.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
+                if(SeriesByYear[indexPrimary].getRelease_year() > SeriesByYear[indexPrimary-1].getRelease_year()){
+                    auxiliar = SeriesByYear.at(indexPrimary-1)
+                    SeriesByYear.at(indexPrimary-1) = SeriesByYear.at(indexPrimary);
+                    SeriesByYear.at(indexPrimary) = auxiliar;
+                }
+            }
+        } 
     }
     catch(const std::exception& e)
     {
