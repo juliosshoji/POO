@@ -41,9 +41,9 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
             s1 = listIterator->getSeries_name();
             s2 = (++listIterator)->getSeries_name();
             if(s2[0] > s1[0]){
-                auxiliar = listIterator;
+                auxiliar = *listIterator;
                 listIterator = (++listIterator);
-                (++listIterator) = auxiliar;
+                *(++listIterator) = auxiliar;
             }
         }
     }
