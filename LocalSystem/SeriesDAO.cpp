@@ -38,12 +38,12 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         vector<Series> serieList = serverConn->getSeries();
         vector<Series>::iterator listIterator = serieList.begin();
         while(listIterator != serieList.end()){
-            s1 = *listIterator->getSeries_name();
-            s2 = *++listIterator->getSeries_name()
+            s1 = listIterator->getSeries_name();
+            s2 = (++listIterator)->getSeries_name()
             if(s2[0] > s1[0]){
-                auxiliar = *listIterator;
-                *listIterator = *++listIterator;
-                *++listIterator = auxiliar;
+                auxiliar = listIterator;
+                listIterator = (++listIterator);
+                (++listIterator) = auxiliar;
             }
         }
     }
