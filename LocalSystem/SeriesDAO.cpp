@@ -11,7 +11,7 @@ SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) :  serverConn(serverConn){
 };
 
 Series SeriesDAO::getSeriesbyID(int internal_id){
-    Series RequestedSeries;
+    Series* RequestedSeries;
     try
     {
         vector<Series *> serieList = this->serverConn->getSeries();
@@ -19,7 +19,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
         size_t index = 0;
         while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
-                return serieList.at(index);
+                RequestedSeries = *seriesIterator;
             }
             index++;
             seriesIterator++;
@@ -29,7 +29,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     {
         std::cerr << e.what() << '\n';
     }
-    return RequestedSeries;
+    return *RequestedSeries;
 };
 
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
