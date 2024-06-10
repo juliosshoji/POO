@@ -127,9 +127,9 @@ void controller::deleteSeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Deletando um registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     int internal_id = stoi(answers[0]);
-    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
+    Series recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
     includeSeriesOp->drawLine();
-    recoveredSeries->printSeries();
+    recoveredSeries.printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Enter para prosseguir ou * para cancelar" << endl;
     char sendConfirm = getchar();
@@ -137,7 +137,7 @@ void controller::deleteSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->SeriesDB->deleteSeries(&*recoveredSeries);
+    this->SeriesDB->deleteSeries(&recoveredSeries);
     cout << endl << "Serie deletada!" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
