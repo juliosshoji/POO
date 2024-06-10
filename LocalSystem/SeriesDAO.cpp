@@ -64,12 +64,12 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
         SeriesByNetwork = this->serverConn->getSeries();
         Series auxiliar;
         for(size_t indexSecondery = 0; indexSecondery < SeriesByNetwork.size(); indexSecondery++){
-            for(size_t indexPrimary = SeriesByNetwork.size(); indexPrimary > indexSecondery; indexPrimary--){
-                auxiliar = SeriesByNetwork.at(indexPrimary+1);
+            for(size_t indexPrimary = SeriesByNetwork.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
+                auxiliar = SeriesByNetwork.at(indexPrimary-1);
                 s1 = SeriesByNetwork[indexPrimary].getNetwork();
                 s2 = auxiliar.getNetwork();
                 if(s1[0] > s2[0]){
-                    SeriesByNetwork.at(indexPrimary+1) = SeriesByNetwork.at(indexPrimary);
+                    SeriesByNetwork.at(indexPrimary-1) = SeriesByNetwork.at(indexPrimary);
                     SeriesByNetwork.at(indexPrimary) = auxiliar;
                 }
             }
