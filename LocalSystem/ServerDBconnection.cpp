@@ -26,7 +26,7 @@ void ServerDBconnection::close(){
 void ServerDBconnection::addSeries(Series* serie){
     try
     {
-        this->serieMem.pushback(serie);
+        this->serieMem.push_back(serie);
     }
     catch(const std::exception& e)
     {
