@@ -36,7 +36,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
         SeriesByTitle = this->serverConn->getSeries();
         Series auxiliar;
         for(size_t indexSecondery = 0; indexSecondery < SeriesByTitle.size(); indexSecondery++){
-            for(size_t indexPrimary = SeriesByTitle.size() - 1; indexPrimary < indexSecondery; indexPrimary--){
+            for(size_t indexPrimary = SeriesByTitle.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
                 auxiliar = SeriesByTitle.at(indexPrimary-1);
                 s1 = SeriesByTitle[indexPrimary].getSeries_name();
                 s2 = auxiliar.getSeries_name();
