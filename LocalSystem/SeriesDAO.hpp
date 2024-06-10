@@ -19,15 +19,6 @@ class SeriesDAO {
 
     private:
         //Mensagens padrao
-        const string addSeriesTxt = "insert into SERIES (internal_id, series_name, release_year, season, episode_count, main_actors, main_characters, network, rating) values (?,?,?,?,?,?,?,?,?)";
-        const string getSeriesbyIDTxt = "select * from SERIES where internal_id = ?";
-        const string getSeriesOrderbyTitleTxt = "select * from SERIES order by series_name";
-        const string getSeriesOrderbyNetworkTxt = "select * from SERIES order by network";
-        const string getSeriesOrderbyYearTxt = "select * from SERIES order by release_year";
-        const string getSeriesOrderbyRatingTxt = "select * from SERIES order by rating";
-        const string updateSeriesTxt = "update SERIES set  series_name = ?, release_year = ?, season = ?, episode_count = ?, main_actors = ?, main_characters = ?, network = ?, rating = ? where internal_id = ?";
-        const string deleteSeriesTxt = "delete from SERIES where internal_id = ?";
-
         //Classe para conexao e transferencia de dados
         ServerDBconnection* serverConn;
 
@@ -35,7 +26,6 @@ class SeriesDAO {
 
         SeriesDAO(ServerDBconnection* serverConn);
         //Funcoes de request do menu
-        virtual void addSeries(Series* Serie);
         virtual void updateSeries(Series* Serie);
         virtual void deleteSeries(Series* Serie);
         virtual Series getSeriesbyID(int internal_id);

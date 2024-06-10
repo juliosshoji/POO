@@ -9,28 +9,52 @@ June, 2024
 using namespace std;
 
 ServerDBconnection::ServerDBconnection(){
-    try
-    {
-        //Instanciando driver
-        this->driver = sql::mariadb::get_driver_instance();
-        //Configurando conexão
-        string urlString = "jdbc:mariadb://" + this->serverIP + ":" + this->serverPort + "/" + this->serverDatabase;
-        sql::SQLString url(urlString);
-        sql::Properties properties({{"user", this->serverUser}, {"password", this->serverPassword}});
-        //Estabelecendo conexão
-        this->connection = driver->connect(url, properties);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
+    serieMem = (new vector<Series *>);
 };
 
 ServerDBconnection::~ServerDBconnection(){
     this->connection->close();
 };
 
-sql::Connection* ServerDBconnection::getConnection() const{
-    return (this->connection);
+void ServerDBconnection::close(){
+    for(Series* serie : this->serieMem){
+        delete serie;
+    }
+    serieMem.clear();
+};
+
+void ServerDBconnection::SeraddSeries(Series* serie){
+    try
+    {
+        this->seriesMem->pushback(serie);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+};
+void ServerDBconnection::deleteSeries(int internal_id){
+    try
+    {
+        vector<Series *>::iterator seriesIterator = this->serieMem->begin();
+        while(seriesIterator != this->serieMem->end()){
+            if((*seriesIterator)->getInternal_id() == internal_id){
+                delete *seriesIterator;
+                this->serieMem->erase(seriesIterator);
+                break;
+            }
+            seriesIterator++;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+};
+void ServerDBconnection::updateSeries(Series* serie){
+    this->deleteSeries(serie->getInternal_id());
+    this->addSeries(serie);
+};
+vector<Series* > getSeries(){
+    return this->serieMem;
 };

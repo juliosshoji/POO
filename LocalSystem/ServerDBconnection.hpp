@@ -1,6 +1,6 @@
 /* 
 Júlio Shoji Zotovici Kobayashi
-Class Controller
+Class ServerDBConnection
 June, 2024
 */
 
@@ -8,6 +8,7 @@ June, 2024
 
 #define SERVERDBCONNECTION_HPP_
 
+#include <vector>
 #include <iostream>
 #include <string>
 #include <mariadb/conncpp.hpp>
@@ -15,21 +16,19 @@ June, 2024
 using namespace std;
 
 class ServerDBconnection {
+
     private:
 
-		sql::Driver *driver = NULL;
-		sql::Connection *connection;
-		string serverDatabase = "Si300A2024_11";
-        string serverPort = "3306";
-		string serverUser = "Si300A2024_11";
-		string serverPassword = "eT8GhbM1JQ";
-        string serverIP = "143.106.243.64";
+		vector<Series *> serieMem;
 
     public:
 		ServerDBconnection();
 		virtual ~ServerDBconnection();
-		sql::Connection* getConnection() const;
-
+		void addSeries(Series* serie);
+		void deleteSeries(Series* serie);
+		void updateSeries(Series* serie);
+		vector<Series* > getSeries();
+		close();
 };
 
 #endif
