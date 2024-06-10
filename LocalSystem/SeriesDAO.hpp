@@ -26,7 +26,7 @@ class SeriesDAO {
 
         SeriesDAO(ServerDBconnection* serverConn);
         //Funcoes de request do menu
-        virtual Series getSeriesbyID(int internal_id);
+        virtual Series* getSeriesbyID(int internal_id);
         vector<Series> getSeriesOrderByTitle();
         vector<Series> getSeriesOrderbyNetwork();
         vector<Series> getSeriesOrderbyYear();

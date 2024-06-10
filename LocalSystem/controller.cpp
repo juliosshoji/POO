@@ -94,9 +94,9 @@ void controller::recoverySeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Recuperando um registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     int internal_id = stoi(answers[0]);
-    Series recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
+    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
     includeSeriesOp->drawLine();
-    recoveredSeries.printSeries();
+    recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Registro Recuperado" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
