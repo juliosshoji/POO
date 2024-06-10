@@ -109,7 +109,17 @@ vector<Series> SeriesDAO::getSeriesOrderbyRating(){
     vector<Series> SeriesByRating;
     try
     {
-        
+        Series auxiliar;
+        SeriesByRating = this->serverConn->getSeries();
+        for(size_t indexSecondery = 0; indexSecondery < SeriesByRating.size(); indexSecondery++){
+            for(size_t indexPrimary = SeriesByRating.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
+                if(SeriesByRating[indexPrimary].getRating() > SeriesByRating[indexPrimary-1].getRating()){
+                    auxiliar = SeriesByRating.at(indexPrimary-1);
+                    SeriesByRating.at(indexPrimary-1) = SeriesByRating.at(indexPrimary);
+                    SeriesByRating.at(indexPrimary) = auxiliar;
+                }
+            }
+        } 
     }
     catch(const std::exception& e)
     {
