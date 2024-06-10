@@ -36,7 +36,7 @@ void ServerDBconnection::addSeries(Series serie){
 void ServerDBconnection::deleteSeries(int internal_id){
     try
     {
-        vector<Series *>::iterator seriesIterator = this->serieMem.begin();
+        vector<Series>::iterator seriesIterator = this->serieMem.begin();
         while(seriesIterator != this->serieMem.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
                 delete *seriesIterator;
@@ -55,6 +55,6 @@ void ServerDBconnection::updateSeries(Series serie){
     this->deleteSeries(serie.getInternal_id());
     this->addSeries(serie);
 };
-vector<Series* > ServerDBconnection::getSeries(){
+vector<Series> ServerDBconnection::getSeries(){
     return this->serieMem;
 };
