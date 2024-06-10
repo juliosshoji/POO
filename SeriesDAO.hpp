@@ -19,7 +19,7 @@ class SeriesDAO {
 
     private:
         //Mensagens padrao
-        const string addSeriesTxt = "insert into SERIES (internal_id, series_name, realease_year, season, episode_count, main_actors, main_characters, network, rating) values (?,?,?,?,?,?,?,?,?)";
+        const string addSeriesTxt = "insert into SERIES (internal_id, series_name, release_year, season, episode_count, main_actors, main_characters, network, rating) values (?,?,?,?,?,?,?,?,?)";
         const string getSeriesbyIDTxt = "select * from SERIES where internal_id = ?";
         const string getSeriesOrderbyTitleTxt = "select * from SERIES order by series_name";
         const string getSeriesOrderbyNetworkTxt = "select * from SERIES order by network";
