@@ -127,7 +127,7 @@ void controller::deleteSeries(){
     int internal_id = stoi(answers[0]);
     Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
     includeSeriesOp->drawLine();
-    recoveredSeries.printSeries();
+    recoveredSeries->printSeries();
     includeSeriesOp->drawLine();
     cout << endl << "Enter para prosseguir ou * para cancelar" << endl;
     char sendConfirm = getchar();
@@ -135,7 +135,7 @@ void controller::deleteSeries(){
         cout << "Cancelado!" << endl;
         return;
     }
-    this->serverConn->deleteSeries(recoveredSeries.getInternal_id());
+    this->serverConn->deleteSeries(recoveredSeries->getInternal_id());
     cout << endl << "Serie deletada!" << endl;
     cout << endl << "Pressione Enter para continuar..." << endl;
 };
