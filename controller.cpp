@@ -145,22 +145,29 @@ void controller::deleteSeries(){
 
 void controller::titleReport(){
 
-    unique_ptr<menu> includeSeriesOp(new menu("Relatorio por titulo", "*"));
-    unique_ptr<Series> testSerie(new Series(1, "Bridgerton", 2020, 3, 21, "Phoebe Dynevor", "Daphne Bridgerton", "Netflix", 10));
-    unique_ptr<menu> reportMenu(new menu("Relatorio por titulo", "*"));
-    vector<Series* >  reportList {&*testSerie};
-    reportMenu->drawReport(reportList);
+    unique_ptr<menu> reporMenu(new menu("Relatorio por titulo", "*"));
+    reportMenu->drawReport(this->SeriesDB->getSeriesOrderByTitle());
     cout << endl << "Pressione Enter para continuar..." << endl;
     getchar();
 };
 
 void controller::channelReport(){
-    cout << "Relatorio por canal" << endl;
+
+    unique_ptr<menu> reporMenu(new menu("Relatorio por canal/streaming", "*"));
+    reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyNetwork());
+    cout << endl << "Pressione Enter para continuar..." << endl;
+    getchar();
 };
 void controller::yearReport(){
-    cout << "Relatorio por ano" << endl;
+    unique_ptr<menu> reporMenu(new menu("Relatorio por ano", "*"));
+    reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyYear());
+    cout << endl << "Pressione Enter para continuar..." << endl;
+    getchar();
 };
 void controller::gradeReport(){
-    cout << "Relatorio por nota" << endl;
+    unique_ptr<menu> reporMenu(new menu("Relatorio por nota", "*"));
+    reportMenu->drawReport(this->SeriesDB->getSeriesOrderbyRating());
+    cout << endl << "Pressione Enter para continuar..." << endl;
+    getchar();
 };
 
