@@ -20,8 +20,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
         while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
                 Series* buffer = *seriesIterator;
-                buffer->printSeries();
-                getchar();
+                
                 RequestedSeries = *buffer;
                 break;
             }
@@ -33,6 +32,8 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     {
         std::cerr << e.what() << '\n';
     }
+    buffer->printSeries();
+    getchar();
     return RequestedSeries;
 };
 
