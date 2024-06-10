@@ -35,17 +35,16 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     {   
         string s1, s2;
         SeriesByTitle = this->serverConn->getSeries();
-        Series auxiliar = SeriesByTitle.at(0);
-        for(size_t indexSecondery = 1; indexSecondery < SeriesByTitle.size(); indexSecondery++){
-            for(size_t indexPrimary = 1; indexPrimary <= indexSecondery; indexPrimary++){
+        Series auxiliar;
+        for(size_t indexSecondery = 0; indexSecondery < SeriesByTitle.size(); indexSecondery++){
+            for(size_t indexPrimary = 0; indexPrimary <= indexSecondery; indexPrimary++){
+                auxiliar = SeriesByTitle.at(indexPrimary+1);
                 s1 = SeriesByTitle[indexPrimary].getSeries_name();
                 s2 = auxiliar.getSeries_name();
                 if(s1[0] < s2[0]){
-                    SeriesByTitle.at(indexPrimary-1) = SeriesByTitle.at(indexPrimary);
+                    SeriesByTitle.at(indexPrimary+1) = SeriesByTitle.at(indexPrimary);
                     SeriesByTitle.at(indexPrimary) = auxiliar;
                 }
-                auxiliar = SeriesByTitle.at(indexPrimary);
-                indexPrimary++;
             }
         } 
     }
