@@ -91,7 +91,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyYear(){
         for(size_t indexSecondery = 0; indexSecondery < SeriesByYear.size(); indexSecondery++){
             for(size_t indexPrimary = SeriesByYear.size() - 1; indexPrimary > indexSecondery; indexPrimary--){
                 if(SeriesByYear[indexPrimary].getRelease_year() > SeriesByYear[indexPrimary-1].getRelease_year()){
-                    auxiliar = SeriesByYear.at(indexPrimary-1)
+                    auxiliar = SeriesByYear.at(indexPrimary-1);
                     SeriesByYear.at(indexPrimary-1) = SeriesByYear.at(indexPrimary);
                     SeriesByYear.at(indexPrimary) = auxiliar;
                 }
