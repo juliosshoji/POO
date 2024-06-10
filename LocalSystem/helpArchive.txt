@@ -1,0 +1,26 @@
+****************************************************************************************************
+
+                                        Menu Ajuda
+
+This system was designed for managing a catalogue of streaming or TV channel series.
+Go through the system selecting the menu you desire to use by typing it's number and pressing enter.
+
+On menu Series you can:
+
+    1. Add a series to the catalogue
+    2. Recover a series from the catalogue and display it.
+    3. Edit a register of a series from the catalogue.
+    4. Delete a series from the catalogue.
+
+On menu Report (Relatorios) you can:
+
+    1. See the catalogue ordered by title
+    2. See the catalogue ordered by channel/streaming
+    3. See the catalogue ordered by year.
+    4. See the catalogue ordered by rating.
+
+On menu Help you will be presented with this text.
+
+On menu credit you will be presented by the creators and the responsible professor for this system.
+
+****************************************************************************************************
