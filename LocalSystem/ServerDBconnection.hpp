@@ -26,10 +26,10 @@ class ServerDBconnection {
 		ServerDBconnection();
 		virtual ~ServerDBconnection();
 		void addSeries(Series* serie);
-		void deleteSeries(Series* serie);
+		void deleteSeries(int internal_id);
 		void updateSeries(Series* serie);
 		vector<Series* > getSeries();
-		close();
+		void close();
 };
 
 #endif
