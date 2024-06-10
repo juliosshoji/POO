@@ -12,6 +12,7 @@ SeriesDAO::SeriesDAO(ServerDBconnection* serverConn) :  serverConn(serverConn){
 
 Series SeriesDAO::getSeriesbyID(int internal_id){
     Series RequestedSeries;
+    Series* buffer;
     try
     {
         vector<Series *> serieList = this->serverConn->getSeries();
@@ -19,7 +20,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
         size_t index = 0;
         while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
-                Series* buffer = *seriesIterator;
+                buffer = *seriesIterator;
                 
                 RequestedSeries = *buffer;
                 break;
