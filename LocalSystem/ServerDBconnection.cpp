@@ -17,7 +17,7 @@ ServerDBconnection::~ServerDBconnection(){
 };
 
 void ServerDBconnection::close(){
-    for(Series* serie : this->serieMem){
+    for(Series serie : this->serieMem){
         delete serie;
     }
     serieMem.clear();
@@ -38,8 +38,7 @@ void ServerDBconnection::deleteSeries(int internal_id){
     {
         vector<Series>::iterator seriesIterator = this->serieMem.begin();
         while(seriesIterator != this->serieMem.end()){
-            if((*seriesIterator)->getInternal_id() == internal_id){
-                delete *seriesIterator;
+            if((*seriesIterator).getInternal_id() == internal_id){
                 this->serieMem.erase(seriesIterator);
                 break;
             }
