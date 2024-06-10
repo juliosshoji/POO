@@ -60,7 +60,20 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
     vector<Series> SeriesByNetwork;
     try
     {
-        
+        string s1, s2;
+        SeriesByNetwork = this->serverConn->getSeries();
+        Series auxiliar;
+        for(size_t indexSecondery = 0; indexSecondery < SeriesByNetwork.size(); indexSecondery++){
+            for(size_t indexPrimary = 0; indexPrimary <= indexSecondery; indexPrimary++){
+                auxiliar = SeriesByNetwork.at(indexPrimary+1);
+                s1 = SeriesByNetwork[indexPrimary].getNetwork();
+                s2 = auxiliar.getNetwork();
+                if(s1[0] > s2[0]){
+                    SeriesByNetwork.at(indexPrimary+1) = SeriesByNetwork.at(indexPrimary);
+                    SeriesByNetwork.at(indexPrimary) = auxiliar;
+                }
+            }
+        } 
     }
     catch(const std::exception& e)
     {
