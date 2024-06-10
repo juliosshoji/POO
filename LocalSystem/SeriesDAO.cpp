@@ -15,11 +15,13 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
     try
     {
         vector<Series *> serieList = this->serverConn->getSeries();
-         vector<Series *>::iterator seriesIterator = serieList.begin();
+        vector<Series *>::iterator seriesIterator = serieList.begin();
+        size_t index = 0;
         while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
-                RequestedSeries = serieList[seriesIterator];
+                RequestedSeries = serieList[index];
             }
+            index++;
             seriesIterator++;
         }
     }
