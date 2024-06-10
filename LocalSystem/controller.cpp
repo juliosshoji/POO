@@ -13,7 +13,6 @@ void exitPress();
 controller::controller(){
     this->serverConn = new ServerDBconnection();
     this->SeriesDB = new SeriesDAO(serverConn);
-    this->start();
 
     Series serie1("Bridgerton", 2020, 3, 21, "Phoebe", "Daphne", "Netflix", 10);
     Series serie2("Arrow", 2012, 8, 21, "Stephen Amell", "Oliver Queen", "Prime video", 9);
@@ -22,6 +21,8 @@ controller::controller(){
     this->serverConn->addSeries(serie1);
     this->serverConn->addSeries(serie2);
     this->serverConn->addSeries(serie3);
+
+    this->start();
 };
 
 controller::~controller(){};
