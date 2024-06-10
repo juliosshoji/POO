@@ -125,7 +125,7 @@ void controller::deleteSeries(){
     unique_ptr<menu> includeSeriesOp(new menu(questions, "Deletando um registro", "*"));
     vector<string> answers = includeSeriesOp->doUserQA();
     int internal_id = stoi(answers[0]);
-    Series recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
+    Series* recoveredSeries = this->SeriesDB->getSeriesbyID(internal_id);
     includeSeriesOp->drawLine();
     recoveredSeries.printSeries();
     includeSeriesOp->drawLine();
