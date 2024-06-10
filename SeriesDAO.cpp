@@ -71,7 +71,7 @@ void SeriesDAO::deleteSeries(Series* serie){
 };
 
 Series* SeriesDAO::getSeriesbyID(int internal_id){
-    Series* RequestedSeries;
+    Series RequestedSeries;
     try
     {
         sql::PreparedStatement* statement(serverConn->getConnection()->prepareStatement(this->getSeriesbyIDTxt));
@@ -103,7 +103,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
     {
         sql::Statement* statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyTitleTxt);
-        Series* RequestedSeries;
+        Series RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
@@ -133,7 +133,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
         
         sql::Statement* statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyNetworkTxt);
-        Series* RequestedSeries;
+        Series RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
@@ -162,7 +162,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyYear(){
         
         sql::Statement* statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyYearTxt);
-        Series* RequestedSeries;
+        Series RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
@@ -190,7 +190,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyRating(){
     {
         sql::Statement* statement(serverConn->getConnection()->createStatement());
         sql::ResultSet *ResultReq = statement->executeQuery(this->getSeriesOrderbyRatingTxt);
-        Series* RequestedSeries;
+        Series RequestedSeries;
         while(ResultReq->next()){
                 RequestedSeries->setInternal_id(ResultReq->getInt(1));
                 RequestedSeries->setSeries_name((ResultReq->getString(2)).c_str());
