@@ -18,13 +18,17 @@ controller::controller(){
     Series serie2("Arrow", 2012, 8, 21, "Stephen Amell", "Oliver Queen", "Prime video", 9);
     Series serie3("Constantine", 2014, 1, 16, "Matt Ryan", "John Constantine", "HBO MAX", 7);
     Series serie4("Anne with an E", 2017, 3, 21, "Amybeth McNulty", "Anne", "Netflix", 3);
-    Series serie4("Fear of the Walking Dead", 2015, 8, 120, "Cliff Curtis, Kim Dickens", "Sean Cabrera, Nancy Tompkins", "Netflix", 8);
-    Series serie4("Game of Thrones", 2011, 8, 73, "Daenerys Targaryen", "Emiia Clarke", "HBO MAX", 10);
-    Series serie4("Zombieland", 2013, 1, 10, "Maiara Walsh", "Wichita", "Prime Video", 6);
+    Series serie5("Fear of the Walking Dead", 2015, 8, 120, "Cliff Curtis, Kim Dickens", "Sean Cabrera, Nancy Tompkins", "Netflix", 8);
+    Series serie6("Game of Thrones", 2011, 8, 73, "Daenerys Targaryen", "Emiia Clarke", "HBO MAX", 10);
+    Series serie7("Zombieland", 2013, 1, 10, "Maiara Walsh", "Wichita", "Prime Video", 6);
 
     this->serverConn->addSeries(serie1);
     this->serverConn->addSeries(serie2);
     this->serverConn->addSeries(serie3);
+    this->serverConn->addSeries(serie4);
+    this->serverConn->addSeries(serie5);
+    this->serverConn->addSeries(serie6);
+    this->serverConn->addSeries(serie7);
 
     this->start();
 };
