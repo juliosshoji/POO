@@ -20,7 +20,7 @@ Series SeriesDAO::getSeriesbyID(int internal_id){
         while(seriesIterator != serieList.end()){
             if((*seriesIterator)->getInternal_id() == internal_id){
                 Series* buffer = *seriesIterator;
-                RequestedSeries = &buffer;
+                RequestedSeries = *buffer;
                 break;
             }
             index++;
