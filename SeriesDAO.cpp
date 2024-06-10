@@ -98,7 +98,7 @@ Series* SeriesDAO::getSeriesbyID(int internal_id){
 };
 
 vector<Series> SeriesDAO::getSeriesOrderByTitle(){
-    vector<Series *> SeriesByTitle;
+    vector<Series> SeriesByTitle;
     try
     {
         sql::Statement* statement(serverConn->getConnection()->createStatement());
@@ -127,7 +127,7 @@ vector<Series> SeriesDAO::getSeriesOrderByTitle(){
 };
 
 vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
-    vector<Series *> SeriesByNetwork;
+    vector<Series> SeriesByNetwork;
     try
     {
         
@@ -156,7 +156,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyNetwork(){
     return SeriesByNetwork;
 };
 vector<Series> SeriesDAO::getSeriesOrderbyYear(){
-    vector<Series *> SeriesByYear;
+    vector<Series> SeriesByYear;
     try
     {
         
@@ -185,7 +185,7 @@ vector<Series> SeriesDAO::getSeriesOrderbyYear(){
     return SeriesByYear;
 };
 vector<Series> SeriesDAO::getSeriesOrderbyRating(){
-    vector<Series *> SeriesByRating;
+    vector<Series> SeriesByRating;
     try
     {
         sql::Statement* statement(serverConn->getConnection()->createStatement());
